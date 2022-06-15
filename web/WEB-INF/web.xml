@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	 version="3.1">
+    <servlet>
+        <servlet-name>sendmail</servlet-name>
+        <servlet-class>Controller.sendmail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>search</servlet-name>
+        <servlet-class>Controller.search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Dangkiservlet</servlet-name>
+        <servlet-class>Controller.Dangkiservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Dangnhapservlet</servlet-name>
+        <servlet-class>Controller.Dangnhapservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editupdate</servlet-name>
+        <servlet-class>Controller.editupdate</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>addbookservlet</servlet-name>
+        <servlet-class>Controller.addbookservlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sendmail</servlet-name>
+        <url-pattern>/sendmail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editupdate</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addbookservlet</servlet-name>
+        <url-pattern>/addbook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Dangkiservlet</servlet-name>
+        <url-pattern>/formdk</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Dangnhapservlet</servlet-name>
+        <url-pattern>/formDn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
