@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class xemchitietDAO {
     private Connection conn;
     private ResultSet rs;
-    public xemchitietDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+    public xemchitietDAO() {
         conn = ConnectSql.getConnection();
     }
     public Product getproduct(String code) throws SQLException{

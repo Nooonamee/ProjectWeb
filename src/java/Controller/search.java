@@ -41,13 +41,9 @@ public class search extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name=request.getParameter("name");
-        try {
-            List<Product> list =new searchDAO().search(name);
-            request.setAttribute("list", list);
-            request.getRequestDispatcher("/listproduct.jsp").forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(search.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        List<Product> list =new searchDAO().search(name);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/listproduct.jsp").forward(request, response);
     }
 
    

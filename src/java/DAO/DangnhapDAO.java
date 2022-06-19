@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class DangnhapDAO {
     private Connection conn;
     private ResultSet rs;
-    public DangnhapDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+    public DangnhapDAO() {
         conn = ConnectSql.getConnection();
     }
     

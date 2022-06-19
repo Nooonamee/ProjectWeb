@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class DangkiDAO {
     private Connection conn;
     private ResultSet rs;
-    public DangkiDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+    public DangkiDAO() {
         conn = ConnectSql.getConnection();
     }
     public int dangki(Taikhoan tk) throws SQLException{

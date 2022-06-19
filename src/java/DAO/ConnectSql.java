@@ -7,16 +7,27 @@ package DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Dell
  */
 public class ConnectSql {
-    public static Connection getConnection() throws SQLException, ClassNotFoundException {
+    public static Connection getConnection() {
         String dbURL = "jdbc:sqlserver://localhost;databaseName=DBWeb;user=sa;password=12";
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        Connection conn = DriverManager.getConnection(dbURL);
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ConnectSql.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(dbURL);
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectSql.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return conn;
     }
 }

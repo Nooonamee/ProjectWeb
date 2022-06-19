@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 public class CRUD {
     private Connection conn;
     private ResultSet rs;
-    public CRUD() throws SQLServerException, SQLException, ClassNotFoundException{
+    public CRUD() {
         conn = ConnectSql.getConnection();
     }
      public void delete(String code) throws SQLException{

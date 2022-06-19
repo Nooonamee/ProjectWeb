@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class listproductDAO {
     private Connection conn;
     private ResultSet rs;
-    public listproductDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+    public listproductDAO() {
         conn = ConnectSql.getConnection();
     }
      public List<Product> getProduct() throws SQLException, ParseException{

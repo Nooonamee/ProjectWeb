@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 public class searchDAO {
     private Connection conn;
     private ResultSet rs;
-    public searchDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+    public searchDAO() {
         conn = ConnectSql.getConnection();  
     }
     public List<Product> search(String name) {
