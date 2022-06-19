@@ -25,20 +25,13 @@ import java.util.logging.Logger;
 public class searchDAO {
     private Connection conn;
     private ResultSet rs;
-    public searchDAO() throws SQLServerException, SQLException{
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=DBWeb;"
-                    + "username=sa;password=12");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(searchDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+    public searchDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+        conn = ConnectSql.getConnection();  
     }
     public List<Product> search(String name) {
         try {
             List<Product> list=new ArrayList<>();
-            String sql="select * from Product where ten like ? or loaisp like ? or namsx like ? or id like ? ";
+            String sql="select * from Product2 where ten like ? or loaisp like ? or namsx like ? or id like ? ";
            
             PreparedStatement ps= conn.prepareStatement(sql);
             ps.setString(1,"%"+name+"%");

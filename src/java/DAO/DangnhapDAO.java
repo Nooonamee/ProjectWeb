@@ -22,15 +22,8 @@ import java.util.logging.Logger;
 public class DangnhapDAO {
     private Connection conn;
     private ResultSet rs;
-    public DangnhapDAO() throws SQLServerException, SQLException{
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=DBWeb;"
-                    + "username=sa;password=12");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DangnhapDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+    public DangnhapDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+        conn = ConnectSql.getConnection();
     }
     
     public boolean layTK(Taikhoan s) throws SQLException{

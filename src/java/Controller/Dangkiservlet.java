@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.DangkiDAO;
 import Model.Taikhoan;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Dangkiservlet extends HttpServlet {
     public final DangkiDAO db;
     public String url;
-    public Dangkiservlet() throws SQLException {
+    public Dangkiservlet() throws SQLException, SQLServerException, ClassNotFoundException {
         this.db = new DangkiDAO();
     }
     

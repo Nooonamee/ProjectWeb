@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.DangnhapDAO;
 import Model.Taikhoan;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -22,43 +23,38 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author VAN TAI
  */
-@WebServlet(name = "Dangnhapservlet", urlPatterns = {"/Dangnhapservlet"})
+//@WebServlet(name = "Dangnhapservlet", urlPatterns = {"/Dangnhapservlet"})
 public class Dangnhapservlet extends HttpServlet {
     public final DangnhapDAO db;
     public String url;
-    public Dangnhapservlet() throws SQLException {
+    public Dangnhapservlet() throws SQLException, SQLServerException, ClassNotFoundException {
         this.db = new DangnhapDAO();
     }
     
-   
-
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       String tendn=request.getParameter("Tendn");
-       String mk=request.getParameter("Matkhau");
-       Taikhoan tk= new Taikhoan();
-       tk.setTendn(tendn);
-       tk.setMk(mk);
-       if(tendn.equals("admin")&&mk.equals("123")){
-        getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);   
-       }
-       else{
-           try {
-               if(db.layTK(tk)){
-                   url = "/index.html";
-               }
-               else{
-                  url = "/dangnhap.html"; 
-               }
+        throws ServletException, IOException {
+        String tendn=request.getParameter("Tendn");
+        String mk=request.getParameter("Matkhau");
+        Taikhoan tk= new Taikhoan();
+        tk.setTendn(tendn);
+        tk.setMk(mk);
+        if(tendn.equals("admin")&&mk.equals("123")){
+            getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);   
+        }
+        else{
+        try {
+            if(db.layTK(tk)){
+                url = "/index.jsp";
+            }
+            else{
+                url = "/dangnhap.html"; 
+            }
            } catch (SQLException ex) {
                Logger.getLogger(Dangnhapservlet.class.getName()).log(Level.SEVERE, null, ex);
            }

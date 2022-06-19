@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -19,15 +19,8 @@ import java.util.logging.Logger;
 public class DangkiDAO {
     private Connection conn;
     private ResultSet rs;
-    public DangkiDAO() throws SQLServerException, SQLException{
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=DBWeb;"
-                    + "username=sa;password=12");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DangkiDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+    public DangkiDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+        conn = ConnectSql.getConnection();
     }
     public int dangki(Taikhoan tk) throws SQLException{
         
@@ -44,7 +37,7 @@ public class DangkiDAO {
         return ps.executeUpdate();
     }
     
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, SQLServerException, ClassNotFoundException {
         DangkiDAO p= new DangkiDAO();
     }
 }

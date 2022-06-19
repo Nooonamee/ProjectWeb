@@ -46,7 +46,6 @@
 			<li><a href="#">Máy ảnh</a></li>
 			<li><a href="#">Laptop</a></li>
                         <li><a href="dangnhap.html">Đăng nhập</a></li>
-                     
 		</ul>
 	</div>
         	
@@ -61,7 +60,7 @@
 			<div class="contentarea">
 				<!-- Normal content area start -->
                                 
-                                <style>
+                <style>
 
                 .tv{
 
@@ -104,6 +103,9 @@
                 .sua{
                     color: #0062cc;
                 }
+                .anhminhhoa{
+                    height: 60px;
+                }
             </style>
 
 
@@ -112,6 +114,7 @@
                 <table class="table" boder="1">
                     <thead>
                         <tr>
+                            <th>Ảnh minh họa</th>
                             <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
                             <th>Loại sản phẩm</th>
@@ -125,13 +128,13 @@
                     <tbody>
                         <c:forEach items="${list}" var="E">
                             <tr>
+                                <td><img class="anhminhhoa" src="images/${E.id}.png" alt="alt"/></td>
                                 <td>${E.id}</td>
                                 <td>${E.ten}</td>
                                 <td>${E.loaisp}</td>
                                 <td>${E.namsx}</td> 
                                 <td>${E.slcon}</td>      
                                 <td><a href="xemchitiet?txtiD=${E.id}"> Xem chi tiết</a></td>
-                                
                             </tr>
                         </c:forEach>
                     </tbody>

@@ -20,19 +20,12 @@ import java.util.logging.Logger;
 public class xemchitietDAO {
     private Connection conn;
     private ResultSet rs;
-    public xemchitietDAO() throws SQLServerException, SQLException{
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=DBWeb;"
-                    + "username=sa;password=12");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(xemchitietDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+    public xemchitietDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+        conn = ConnectSql.getConnection();
     }
     public Product getproduct(String code) throws SQLException{
         Product p= new Product();
-        String sql="select * from Product where id=? ";
+        String sql="select * from Product2 where id=? ";
         PreparedStatement ps=conn.prepareStatement(sql);
         ps.setString(1, code);
         rs=ps.executeQuery();

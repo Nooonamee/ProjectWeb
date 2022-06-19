@@ -22,20 +22,13 @@ import java.util.logging.Logger;
 public class listproductDAO {
     private Connection conn;
     private ResultSet rs;
-    public listproductDAO() throws SQLServerException, SQLException{
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=DBWeb;"
-                    + "username=sa;password=12");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(listproductDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+    public listproductDAO() throws SQLServerException, SQLException, ClassNotFoundException{
+        conn = ConnectSql.getConnection();
     }
      public List<Product> getProduct() throws SQLException, ParseException{
         List<Product> list = new ArrayList<>();
         
-        String selectName = "SELECT * FROM Product"; 
+        String selectName = "select * from Product2"; 
         PreparedStatement ps = conn.prepareStatement(selectName);
         rs = ps.executeQuery();
         while(rs.next()){

@@ -1,7 +1,13 @@
+<%-- 
+    Document   : index.jsp
+    Created on : 15 Jun 2022, 22:52:20
+    Author     : Dell
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html" ; charset="UTF-8"/>
 	<title>Cửa hàng điện tử</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content=""/>
@@ -28,9 +34,17 @@
 		
 		<div class="cart">
 			<i class="fa-solid fa-cart-shopping"></i>
-			<div class="cart-quantity">0</div>
+			<div class="cart-quantity">2</div>
 			<div class="cart-list">
-                            <p class="cart-list-empty">Chưa có đơn hàng nào được thêm</p>
+				<div class="cart-item">
+					<img src="images/201406051522109725_Nokia 1280.png" alt="" />
+					<p>Nokia 1280</p>
+				</div>
+
+				<div class="cart-item">
+					<img src="images/600_xiaomi-mi-note-10-xtmobile.png" alt="" />
+					<p>Xiaomi note 10</p>
+				</div>
 			</div>
 		</div>
 

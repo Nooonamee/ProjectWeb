@@ -25,18 +25,11 @@ import java.util.logging.Logger;
 public class CRUD {
     private Connection conn;
     private ResultSet rs;
-    public CRUD() throws SQLServerException, SQLException{
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=DBWeb;"
-                    + "username=sa;password=12");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+    public CRUD() throws SQLServerException, SQLException, ClassNotFoundException{
+        conn = ConnectSql.getConnection();
     }
      public void delete(String code) throws SQLException{
-        String ISSql = "delete from Product where id=? ";
+        String ISSql = "delete from Product2 where id=? ";
        
        PreparedStatement ps = conn.prepareStatement(ISSql);
        ps.setString(1, code);
@@ -47,7 +40,7 @@ public class CRUD {
      public List<Product> getProduct() throws SQLException, ParseException{
         List<Product> list = new ArrayList<>();
         
-        String selectName = "SELECT * FROM Product"; 
+        String selectName = "SELECT * FROM Product2"; 
         PreparedStatement ps = conn.prepareStatement(selectName);
         rs = ps.executeQuery();
         while(rs.next()){
@@ -71,7 +64,7 @@ public class CRUD {
         return list;
     }
       public void update(String id, String ten, String loaisp,String namsx,String slcon ,String code1) throws SQLException{
-        String ISSql = "UPDATE Product SET id=?, ten=?, loaisp=? ,namsx=? ,slcon= ? WHERE id=?";
+        String ISSql = "UPDATE Product2 SET id=?, ten=?, loaisp=? ,namsx=? ,slcon= ? WHERE id=?";
                 
         PreparedStatement ps = conn.prepareStatement(ISSql);
         ps.setString(1, id);
