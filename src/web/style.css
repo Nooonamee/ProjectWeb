@@ -310,8 +310,58 @@ ul.linklist li {
 }
 
 #menu {
-	background: #7F8400 url('images/menubg.gif') repeat-x top left;
+    background: #7F8400 url('images/menubg.gif') repeat-x top left;
+    height: 48px;
+    position: relative;
+}
+
+#menu .user {
+	display: flex;
+	padding: 0 16px;
+	color: #fff;
+	text-decoration: none;
 	height: 48px;
+	font-size: 16px;
+	align-items: center;
+}
+
+#menu .user p{
+	padding-left: 5px;
+	line-height: 48px;
+	height: 48px;
+	transform: translateY(8px);
+}
+
+.nut-dn {
+    position: absolute;
+    right: 0;
+	cursor: pointer;
+}
+
+.nut-dn:hover .user-thongtin {
+	display: block;
+	background-color: rgba(255, 255, 255, 0.892);
+	border-radius: 2px;
+}
+
+.user-thongtin {
+	display: none;
+}
+
+.user-item {
+	height: 40px;
+	font-size: 15px;
+	line-height: 40px;
+	padding-left: 10px;
+}
+
+.user-item:hover {
+	background-color: #10eded;
+}
+
+#menu .avatar {
+    height: 20px;
+    border-radius: 50%;
 }
 
 #menu ul {
@@ -387,3 +437,6 @@ ul.linklist li {
 	right: 2.0em;
 	bottom: 1.2em;
 }
+
+
+

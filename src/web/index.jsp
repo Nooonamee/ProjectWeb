@@ -1,7 +1,15 @@
+<%-- 
+    Document   : index.jsp
+    Created on : 15 Jun 2022, 22:52:20
+    Author     : Dell
+--%>
+
+<%@page import="Model.TaiKhoan"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html" ; charset="UTF-8"/>
 	<title>Cửa hàng điện tử</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content=""/>
@@ -15,7 +23,6 @@
 		<div id="header">
 			<div id="headercontent">
 				<h1>Cửa Hàng Điện Tử</h1>
-				<h2></h2>
 			</div>
 		</div>
 
@@ -28,27 +35,49 @@
 		
 		<div class="cart">
 			<i class="fa-solid fa-cart-shopping"></i>
-			<div class="cart-quantity">0</div>
+			<div class="cart-quantity">2</div>
 			<div class="cart-list">
-                            <p class="cart-list-empty">Chưa có đơn hàng nào được thêm</p>
+				<div class="cart-item">
+					<img src="images/201406051522109725_Nokia 1280.png" alt="" />
+					<p>Nokia 1280</p>
+				</div>
+
+				<div class="cart-item">
+					<img src="images/600_xiaomi-mi-note-10-xtmobile.png" alt="" />
+					<p>Xiaomi note 10</p>
+				</div>
 			</div>
 		</div>
 
 		<div id="headerpic"></div>
 
 		<div id="menu">
-                    <ul>
-			<li><a href="#">Trang chủ </a></li>
-                        <li><a href="listproduct" class="active">Danh sách sản phẩm</a></li>
-			<li><a href="dienthoai.html">Điện thoại</a></li>
-			<li><a href="phukien.html">Phụ kiện </a></li>
-			<li><a href="mayanh.html">Máy ảnh</a></li>
-                        <li><a href="laptop.html">Laptop</a></li>
-                        <li><a href="dangnhap.html">Đăng nhập</a></li>
-                        <li><a href="dangnhap.html">Đăng xuất</a></li>
-                        <li><a href="admin.jsp">Quản lý</a></li>
-                        <li><a href="index.html">Người dùng</a></li>
-                    </ul>
+            <ul>
+				<li><a href="index.jsp">Trang chủ </a></li>
+				<li><a href="listproduct">Danh sách sản phẩm</a></li>
+				<li><a href="dienthoai.html">Điện thoại</a></li>
+				<li><a href="phukien.html">Phụ kiện </a></li>
+				<li><a href="mayanh.html">Máy ảnh</a></li>
+				<li><a href="laptop.html">Laptop</a></li>
+				<%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
+				<li class="nut-dn">
+                                    <% 
+                                        TaiKhoan user = (TaiKhoan)session.getAttribute("user");
+                                    %>
+                                    <% if (user.getId().isEmpty()) {%>
+                                        <a href="dangnhap.html">Đăng nhập</a>
+                                        <%} else { %>
+                                        <div class="user">
+                                            <img class="avatar" src="images/RAVpower-RP-PB18.png" alt="avata"/>
+                                            <p>${user.ten}</p> 
+                                        </div>
+                                        <div class="user-thongtin">
+                                          <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                          <div class="user-item user-dangxuat">Đăng xuất</div>
+                                        </div>
+                                        <% }%>
+				</li>
+            </ul>
 		</div>
 
 		<div id="menubottom"></div>
@@ -84,7 +113,7 @@
 						<h2>Máy ảnh canon</h2>
 						<div class="contentarea">
 							<div class="details">Được đăng bởi <a href="#">Tuấn Hùng</a> 12/06/2022</div>
-							<img src="images/canon.png" class="left" />
+							<img src="images/TB1129.png" class="left" />
 
 							<ul class="controls">
 								<li><a href="#" class="friendly">Bạn bè</a></li>

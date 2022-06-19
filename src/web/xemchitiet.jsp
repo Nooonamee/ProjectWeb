@@ -77,9 +77,9 @@
                 <h1>Chi Tiết Sản Phẩm</h1>
                 Mã sản phẩm: ${b.id}<br>
                 Tên sản phẩm:${b.ten}<br>
-                Loại sản phẩm:${b.loaisp}<br>
-                Năm sản xuất:${b.namsx}<br>
-                Số lượng còn:${b.slcon}<br>
+                Loại sản phẩm:${b.loai}<br>
+                Mau :${b.mau}<br>
+                Gia :${b.gia}<br>
                 <a href="">Mua ngay</a><br>
                 <a  href="#">Thêm vào giỏ hàng</a>      
 
