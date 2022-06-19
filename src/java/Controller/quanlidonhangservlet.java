@@ -20,7 +20,7 @@ public class quanlidonhangservlet extends HttpServlet {
         CRUD db= new CRUD();
         List<SanPham> list= db.getProduct();
         request.setAtribute("list",list);
-        request.getRequestDispatcher("/danhsachsanphamduocban.jsp").forward(request, response);
+        request.getRequestDispatcher("/quanlidonhang.jsp").forward(request, response);
     }
 
     @Override

@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Model.Taikhoan;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +22,7 @@ public class DangkiDAO {
     public DangkiDAO() {
         conn = ConnectSql.getConnection();
     }
-    public int dangki(Taikhoan tk) throws SQLException{
+    public int dangki(TaiKhoan tk) throws SQLException{
         
         String ISSql = "INSERT INTO TaiKhoan"
                 + " (hoten, tendn, email, matkhau, nlmk) VALUES "
