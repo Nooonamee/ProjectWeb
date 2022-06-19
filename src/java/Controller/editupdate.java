@@ -23,45 +23,43 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "editupdate", urlPatterns = {"/editupdate"})
 public class editupdate extends HttpServlet {
-    private final CRUD db;
-    public editupdate() throws SQLException{
-        this.db=new CRUD();
-    }
-    
-    
 
-   
+    private final CRUD db;
+
+    public editupdate() throws SQLException {
+        this.db = new CRUD();
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
-            
-            String id = request.getParameter("id");
-            String ten = request.getParameter("ten");
-            String loai = request.getParameter("loaisp");
-            String nam = request.getParameter("namsx");
-            String sl = request.getParameter("slcon");
-            String code1 = request.getParameter("code1");
-      
-            db.update(id, ten, loai,nam,sl,code1);
-            
+        try {
+
+            int id = (int) request.getAttribute("id");
+            String ten = (String) request.getAttribute("ten");
+            String moTa = (String) request.getAttribute("moTa");
+            String loai = (String) request.getAttribute("loai");
+            String mau = (String) request.getAttribute("mau");
+            int gia = (int) request.getAttribute("gia");
+            int soLuong = (int) request.getAttribute("soLuong");
+            int daBan = (int) request.getAttribute("daBan");
+
+            db.update(id, ten, moTa, loai,mau,gia,soLuong,daBan);
+
             getServletContext().getRequestDispatcher("/viewedit.jsp").forward(request, response);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(editupdate.class.getName()).log(Level.SEVERE, null, ex);
         }
-           
-    }
-    
 
-    
+    }
+
     @Override
     public String getServletInfo() {
         return "Short description";
