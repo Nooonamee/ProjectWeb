@@ -30,7 +30,7 @@ public class xemchitietDAO {
         ps.setString(1, code);
         rs=ps.executeQuery();
         while(rs.next()){
-            String id = rs.getString("id");
+            int id = Integer.parseInt(rs.getString("id"));
             String ten = rs.getString("ten");
             String loai = rs.getString("loaisp");
             String namsx=rs.getString("namsx");

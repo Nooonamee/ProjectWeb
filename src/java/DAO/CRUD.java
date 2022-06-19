@@ -79,8 +79,8 @@ public class CRUD {
         ps.setString(4, loai);
         ps.setString(5, mau);
         ps.setInt(6, gia);
-        ps.setInt(6, soLuong);
-        ps.setInt(7, daBan);
+        ps.setInt(7, soLuong);
+        ps.setInt(8, daBan);
         ps.executeUpdate();
        
     }
