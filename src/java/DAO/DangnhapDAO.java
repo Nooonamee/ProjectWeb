@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Model.Taikhoan;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +26,7 @@ public class DangnhapDAO {
         conn = ConnectSql.getConnection();
     }
     
-    public boolean layTK(Taikhoan s) throws SQLException{
+    public boolean layTK(TaiKhoan s) throws SQLException{
         String sql = "SELECT*FROM TaiKhoan WHERE tendn=? AND matkhau=? ";
         try{
                PreparedStatement ps = conn.prepareStatement(sql);
