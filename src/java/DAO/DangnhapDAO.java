@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Model.Taikhoan;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,17 +26,27 @@ public class DangnhapDAO {
         conn = ConnectSql.getConnection();
     }
     
-    public boolean layTK(Taikhoan s) throws SQLException{
-        String sql = "SELECT*FROM TaiKhoan WHERE tendn=? AND matkhau=? ";
+    public TaiKhoan layTK(TaiKhoan s) throws SQLException{
+        String sql = "SELECT * FROM TaiKhoan WHERE user_name=? AND password=? ";
         try{
-               PreparedStatement ps = conn.prepareStatement(sql);
-               ps.setString(1, s.getTendn());
-               ps.setString(2, s.getMk());
-               rs = ps.executeQuery();
-           } catch(Exception e){
-               e.printStackTrace();
-           }
-        return rs.next();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, s.getUser_name());
+            ps.setString(2, s.getPassword());
+            rs = ps.executeQuery();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        if (rs.next()) {
+            s.setId(rs.getString("id"));
+            s.setTen(rs.getString("ten"));
+            s.setUser_name(rs.getString("user_name"));
+            s.setPassword(rs.getString("password"));
+            s.setSoDienThoai(rs.getString("soDienThoai"));
+            s.setDiaChi(rs.getString("diaChi"));
+            s.setLoai(rs.getString("loai"));
+        }
+        
+        return s;
     }
 }
 

@@ -118,7 +118,7 @@
                             <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
                             <th>Loại sản phẩm</th>
-                            <th>Năm sản xuât</th>
+                            <th>Màu</th>
                             <th>Giá</th>
                             
                             <th>Chi tiết </th>
@@ -128,13 +128,13 @@
                     <tbody>
                         <c:forEach items="${list}" var="E">
                             <tr>
-                                <td><img class="anhminhhoa" src="images/${E.id}.png" alt="alt"/></td>
+                                <td><img class="anhminhhoa" src="images/product${E.id}.png" alt="alt"/></td>
                                 <td>${E.id}</td>
                                 <td>${E.ten}</td>
-                                <td>${E.loaisp}</td>
-                                <td>${E.namsx}</td> 
-                                <td>${E.slcon}</td>      
-                                <td><a href="xemchitiet?txtiD=${E.id}"> Xem chi tiết</a></td>
+                                <td>${E.loai}</td>
+                                <td>${E.mau}</td>
+                                <td>${E.gia}</td>
+                                <td><a href="xemchitiet?txtiD=${E.id}">Xem chi tiết</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

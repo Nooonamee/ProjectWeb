@@ -8,7 +8,7 @@
 <title>zenlike1.0 by nodethirtythree</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+<!--<link rel="stylesheet" type="text/css" href="style.css" />-->
 </head>
 <body>
 
@@ -59,13 +59,17 @@
 			
 			<div class="contentarea">
 				<!-- Normal content area start -->
-                  <style>
+            <style>
                 .header{
                     text-align: center;
                   
                 }
                 .cl{
                     color: red;
+                }
+                .anhminhhoa {
+                    max-height: 60px;
+                    max-width: 80px;
                 }
             </style>
             <section class="header">
@@ -77,9 +81,9 @@
                 <h1>Chi Tiết Sản Phẩm</h1>
                 Mã sản phẩm: ${b.id}<br>
                 Tên sản phẩm:${b.ten}<br>
-                Loại sản phẩm:${b.loaisp}<br>
-                Năm sản xuất:${b.namsx}<br>
-                Số lượng còn:${b.slcon}<br>
+                Loại sản phẩm:${b.loai}<br>
+                Mau :${b.mau}<br>
+                Gia :${b.gia}<br>
                 <a href="">Mua ngay</a><br>
                 <a  href="#">Thêm vào giỏ hàng</a>      
 

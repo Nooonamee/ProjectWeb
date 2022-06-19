@@ -6,7 +6,7 @@
 package DAO;
 
 
-import Model.Product;
+import Model.sanPham;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,24 +23,30 @@ public class xemchitietDAO {
     public xemchitietDAO() {
         conn = ConnectSql.getConnection();
     }
-    public Product getproduct(String code) throws SQLException{
-        Product p= new Product();
-        String sql="select * from Product2 where id=? ";
+    public sanPham getproduct(String code) throws SQLException{
+        sanPham p= new sanPham();
+        String sql="select * from sanPham where id=? ";
         PreparedStatement ps=conn.prepareStatement(sql);
         ps.setString(1, code);
         rs=ps.executeQuery();
         while(rs.next()){
-            String id = rs.getString("id");
+            int id = Integer.parseInt(rs.getString("id"));
             String ten = rs.getString("ten");
-            String loai = rs.getString("loaisp");
-            String namsx=rs.getString("namsx");
-            int slcon=rs.getInt("slcon");
+            String moTa = rs.getString("moTa");
+            String loai = rs.getString("loai");
+            String mau=rs.getString("mau");
+            int gia=rs.getInt("gia");
+            int soLuong=rs.getInt("soLuong");
+            int daBan=rs.getInt("daBan");
             
             p.setId(id);
             p.setTen(ten);
-            p.setLoaisp(loai);
-            p.setNamsx(namsx);
-            p.setSlcon(slcon);
+            p.setMoTa(moTa);
+            p.setLoai(loai);
+            p.setMau(mau);
+            p.setGia(gia);
+            p.setSoLuong(soLuong);
+            p.setDaBan(daBan);
             
             
         }

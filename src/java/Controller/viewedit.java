@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.xemchitietDAO;
-import Model.Product;
+import Model.sanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public class viewedit extends HttpServlet {
             throws ServletException, IOException {
        try {
             String code= request.getParameter("txtiD");
-            Product b=db.getproduct(code);
+            sanPham b=db.getproduct(code);
             request.setAttribute("b", b);
             request.getRequestDispatcher("/viewedit.jsp").forward(request, response);
         } catch (SQLException ex) {
@@ -50,7 +50,7 @@ public class viewedit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+   
     }
 
     

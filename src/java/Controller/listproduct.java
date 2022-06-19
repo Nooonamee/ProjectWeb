@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.listproductDAO;
-import Model.Product;
+import Model.sanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -40,7 +40,7 @@ public class listproduct extends HttpServlet {
             throws ServletException, IOException {
         try {
             
-            List<Product> list=db.getProduct();
+            List<sanPham> list=db.getProduct();
             request.setAttribute("list", list);
             request.getRequestDispatcher("/listproduct.jsp").forward(request, response);
         } catch (SQLException ex) {
@@ -64,3 +64,4 @@ public class listproduct extends HttpServlet {
     }// </editor-fold>
 
 }
+

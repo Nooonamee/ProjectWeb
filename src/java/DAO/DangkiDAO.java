@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Model.Taikhoan;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,17 +22,18 @@ public class DangkiDAO {
     public DangkiDAO() {
         conn = ConnectSql.getConnection();
     }
-    public int dangki(Taikhoan tk) throws SQLException{
+    public int dangki(TaiKhoan tk) throws SQLException{
         
-        String ISSql = "INSERT INTO TaiKhoan"
-                + " (hoten, tendn, email, matkhau, nlmk) VALUES "
-                + "(?,?,?,?,?);";
+        String ISSql = "INSERT INTO taiKhoan"
+                + " (ten, user_name, password, soDienThoai, diaChi, loai) VALUES "
+                + "(?,?,?,?,?,?);";
         PreparedStatement ps = conn.prepareStatement(ISSql);
-        ps.setString(1, tk.getHoten());
-        ps.setString(2, tk.getTendn());
-        ps.setString(3, tk.getEmail());
-        ps.setString(4, tk.getMk());
-        ps.setString(5, tk.getNlmk());
+        ps.setString(1, tk.getTen());
+        ps.setString(2, tk.getUser_name());
+        ps.setString(3, tk.getPassword());
+        ps.setString(4, tk.getSoDienThoai());
+        ps.setString(5, tk.getDiaChi());
+        ps.setString(6, "khach");
        
         return ps.executeUpdate();
     }

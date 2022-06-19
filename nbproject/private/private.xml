@@ -3,24 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/style.css</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/index.jsp</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/Dangnhapservlet.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/dangnhap.html</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/Dangkiservlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/search.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/viewedit.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/quanlisanpham.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/CRUD.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/test.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/editupdate.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/listproduct.jsp</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/DangkiDAO.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/admin.jsp</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/listproductDAO.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/quanlisanpham.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/xemchitiet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/viewdelete.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/searchDAO.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/index.html</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/DangnhapDAO.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/updatedelete.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/xemchitiet.jsp</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/listproduct.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/quanlisanphamDAO.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/xemchitietDAO.java</file>
         </group>
     </open-files>
