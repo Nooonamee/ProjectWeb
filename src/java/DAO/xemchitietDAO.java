@@ -6,7 +6,7 @@
 package DAO;
 
 
-import Model.Product;
+import Model.SanPham;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,8 +23,8 @@ public class xemchitietDAO {
     public xemchitietDAO() {
         conn = ConnectSql.getConnection();
     }
-    public Product getproduct(String code) throws SQLException{
-        Product p= new Product();
+    public SanPham getproduct(String code) throws SQLException{
+        SanPham p= new SanPham();
         String sql="select * from Product2 where id=? ";
         PreparedStatement ps=conn.prepareStatement(sql);
         ps.setString(1, code);

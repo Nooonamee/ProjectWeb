@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Model.Product;
+import Model.SanPham;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,14 +25,14 @@ public class listproductDAO {
     public listproductDAO() {
         conn = ConnectSql.getConnection();
     }
-     public List<Product> getProduct() throws SQLException, ParseException{
-        List<Product> list = new ArrayList<>();
+     public List<SanPham> getProduct() throws SQLException, ParseException{
+        List<SanPham> list = new ArrayList<>();
         
         String selectName = "select * from Product2"; 
         PreparedStatement ps = conn.prepareStatement(selectName);
         rs = ps.executeQuery();
         while(rs.next()){
-            Product p = new Product();
+            SanPham p = new SanPham();
             String id = rs.getString("id");
             String ten = rs.getString("ten");
             String loai = rs.getString("loaisp");
