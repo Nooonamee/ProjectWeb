@@ -8,7 +8,7 @@ package Model;
  *
  * @author Admin
  */
-public class sanPham {
+public class SanPham {
     private int id;
     private String ten;
     private String moTa;
@@ -18,10 +18,10 @@ public class sanPham {
     private int soLuong;
     private int daBan;
 
-    public sanPham() {
+    public SanPham() {
     }
 
-    public sanPham(int id, String ten, String moTa, String loai, String mau, int gia, int soLuong, int daBan) {
+    public SanPham(int id, String ten, String moTa, String loai, String mau, int gia, int soLuong, int daBan) {
         this.id = id;
         this.ten = ten;
         this.moTa = moTa;
