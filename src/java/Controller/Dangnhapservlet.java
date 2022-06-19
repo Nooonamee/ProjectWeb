@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.DangnhapDAO;
-import Model.Taikhoan;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,7 +41,7 @@ public class Dangnhapservlet extends HttpServlet {
         throws ServletException, IOException {
         String tendn=request.getParameter("Tendn");
         String mk=request.getParameter("Matkhau");
-        Taikhoan tk= new Taikhoan();
+        TaiKhoan tk= new TaiKhoan();
         tk.setTendn(tendn);
         tk.setMk(mk);
         if(tendn.equals("admin")&&mk.equals("123")){

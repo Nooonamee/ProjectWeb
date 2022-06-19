@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.DangkiDAO;
-import Model.Taikhoan;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,7 +45,7 @@ public class Dangkiservlet extends HttpServlet {
         String mk= request.getParameter("Matkhau");
         String nlmk= request.getParameter("Nmk");
         
-        Taikhoan tk= new Taikhoan(hoten, tendn, email, mk, nlmk);
+        TaiKhoan tk= new TaiKhoan(hoten, tendn, email, mk, nlmk);
         if(nlmk.equals(mk)){
             try {
                 db.dangki(tk);

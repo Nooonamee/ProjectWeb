@@ -4,7 +4,11 @@ import DAO.CRUD;
 import Model.SanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +21,19 @@ public class quanlidonhangservlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CRUD db= new CRUD();
-        List<SanPham> list= db.getProduct();
-        request.setAtribute("list",list);
-        request.getRequestDispatcher("/quanlidonhang.jsp").forward(request, response);
+        try {
+            CRUD db= new CRUD();
+            List<SanPham> list;
+            
+            list = db.getProduct();
+            
+            request.setAttribute("list",list);
+            request.getRequestDispatcher("/quanlidonhang.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(quanlidonhangservlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(quanlidonhangservlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
