@@ -7,14 +7,12 @@ package Model;
 
 
 public class TaiKhoan {
-    private int id;
-    private String ten,user_name,password,soDienThoai,diaChi,loai;
+    private String id,ten,user_name,password,soDienThoai,diaChi,loai;
 
     public TaiKhoan() {
     }
 
-    public TaiKhoan(int id, String ten, String user_name, String password, String soDienThoai, String diaChi, String loai) {
-        this.id = id;
+    public TaiKhoan(String ten, String user_name, String password, String soDienThoai, String diaChi, String loai) {
         this.ten = ten;
         this.user_name = user_name;
         this.password = password;
@@ -23,15 +21,13 @@ public class TaiKhoan {
         this.loai = loai;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
-
-   
 
     public String getTen() {
         return ten;

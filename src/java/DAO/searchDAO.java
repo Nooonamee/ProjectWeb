@@ -6,7 +6,7 @@
 package DAO;
 
 
-import Model.SanPham;
+import Model.sanPham;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,9 +27,9 @@ public class searchDAO {
     public searchDAO() {
         conn = ConnectSql.getConnection();  
     }
-    public List<SanPham> search(String name) {
+    public List<sanPham> search(String name) {
         try {
-            List<SanPham> list=new ArrayList<>();
+            List<sanPham> list=new ArrayList<>();
             String sql="select * from Product2 where ten like ? or loai like ? or id like ? ";
            
             PreparedStatement ps= conn.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class searchDAO {
                 int soLuong=rs.getInt("soLuong");
                 int daBan=rs.getInt("daBan");
                 
-                SanPham p=new SanPham(id,ten,moTa,loai,mau,gia,soLuong,daBan);
+                sanPham p=new sanPham(id,ten,moTa,loai,mau,gia,soLuong,daBan);
                 list.add(p);
             }
             return list;

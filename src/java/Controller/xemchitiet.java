@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.xemchitietDAO;
-import Model.SanPham;
+import Model.sanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public class xemchitiet extends HttpServlet {
             throws ServletException, IOException {
        try {
             String code= request.getParameter("txtiD");
-            SanPham b= db.getproduct(code);
+            sanPham b= db.getproduct(code);
             request.setAttribute("b", b);
             request.getRequestDispatcher("/xemchitiet.jsp").forward(request, response);
         } catch (SQLException ex) {

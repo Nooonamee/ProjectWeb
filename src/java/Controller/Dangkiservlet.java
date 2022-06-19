@@ -45,7 +45,7 @@ public class Dangkiservlet extends HttpServlet {
         String mk= request.getParameter("Matkhau");
         String nlmk= request.getParameter("Nmk");
         
-        TaiKhoan tk= new TaiKhoan(hoten, tendn, email, mk, nlmk);
+        TaiKhoan tk= new TaiKhoan(hoten, tendn, mk, nlmk, email, "khach");
         if(nlmk.equals(mk)){
             try {
                 db.dangki(tk);

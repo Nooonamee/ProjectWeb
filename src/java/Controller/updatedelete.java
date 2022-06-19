@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.CRUD;
-import Model.SanPham;
+import Model.sanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -42,7 +42,7 @@ public class updatedelete extends HttpServlet {
             String code = request.getParameter("txtid");
             
             db.delete(code);
-          List<SanPham> list =db.getProduct();
+          List<sanPham> list =db.getProduct();
 //        request.setAttribute("p", p);
         request.setAttribute("list", list);
         getServletContext().getRequestDispatcher("/quanlisanpham.jsp").forward(request, response); 
