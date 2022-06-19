@@ -9,7 +9,7 @@
 -- Tạo các table
 	-- Product
 	DROP TABLE IF EXISTS sanPham
-	CREATE TABLE Product
+	CREATE TABLE sanPham
 	(
 		id int identity(1,0001) not null primary key,
 		ten nvarchar(30) not null,
@@ -23,8 +23,8 @@
 	GO
 
 	-- User
-	DROP TABLE IF EXISTS UserWeb
-	CREATE TABLE UserWeb
+	DROP TABLE IF EXISTS taiKhoan
+	CREATE TABLE taiKhoan
 	(
 		id int identity(1,0001) primary key,
 		ten nvarchar(30) not null,
