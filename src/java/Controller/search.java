@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.searchDAO;
-import Model.Product;
+import Model.SanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -41,7 +41,7 @@ public class search extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name=request.getParameter("name");
-        List<Product> list =new searchDAO().search(name);
+        List<SanPham> list =new searchDAO().search(name);
         request.setAttribute("list", list);
         request.getRequestDispatcher("/listproduct.jsp").forward(request, response);
     }
