@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Model.sanPham;
+import Model.SanPham;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,14 +37,14 @@ public class CRUD {
        ps.executeUpdate();
        
     }
-     public List<sanPham> getProduct() throws SQLException, ParseException{
-        List<sanPham> list = new ArrayList<>();
+     public List<SanPham> getProduct() throws SQLException, ParseException{
+        List<SanPham> list = new ArrayList<>();
         
         String selectName = "SELECT * FROM sanPham"; 
         PreparedStatement ps = conn.prepareStatement(selectName);
         rs = ps.executeQuery();
         while(rs.next()){
-            sanPham p = new sanPham();
+            SanPham p = new SanPham();
             int id=rs.getInt("id");
             String ten = rs.getString("ten");
             String moTa = rs.getString("moTa");
