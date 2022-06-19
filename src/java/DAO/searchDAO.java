@@ -24,14 +24,13 @@ import java.util.logging.Logger;
  */
 public class searchDAO {
     private Connection conn;
-    private ResultSet rs;
     public searchDAO() {
         conn = ConnectSql.getConnection();  
     }
     public List<SanPham> search(String name) {
         try {
             List<SanPham> list=new ArrayList<>();
-            String sql="select * from Product2 where ten like ? or loaisp like ? or namsx like ? or id like ? ";
+            String sql="select * from Product2 where ten like ? or loai like ? or id like ? ";
            
             PreparedStatement ps= conn.prepareStatement(sql);
             ps.setString(1,"%"+name+"%");
@@ -41,7 +40,16 @@ public class searchDAO {
            
             ResultSet rs= ps.executeQuery();
             while (rs.next()){
-                SanPham p=new SanPham(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4),rs.getInt(5));
+                int id = Integer.parseInt(rs.getString("id"));
+                String ten = rs.getString("ten");
+                String moTa = rs.getString("moTa");
+                String loai = rs.getString("loai");
+                String mau=rs.getString("mau");
+                int gia=rs.getInt("gia");
+                int soLuong=rs.getInt("soLuong");
+                int daBan=rs.getInt("daBan");
+                
+                SanPham p=new SanPham(id,ten,moTa,loai,mau,gia,soLuong,daBan);
                 list.add(p);
             }
             return list;
