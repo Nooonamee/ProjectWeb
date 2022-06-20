@@ -7,6 +7,11 @@
 <%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    TaiKhoan user = (TaiKhoan)session.getAttribute("user");
+    int q = 0;
+    if (user != null) q = 2;
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -34,9 +39,13 @@
 		</form>
 		
 		<div class="cart">
+                    <a href="CartController">
 			<i class="fa-solid fa-cart-shopping"></i>
-			<div class="cart-quantity">2</div>
+                        <div class="cart-quantity"><%=q%></div>
 			<div class="cart-list">
+                            <% if (user == null) {%>
+                                <p class="cart-list-empty">Chưa có đơn hàng nào được thêm</p>
+                                <%} else { %>
 				<div class="cart-item">
 					<img src="images/201406051522109725_Nokia 1280.png" alt="" />
 					<p>Nokia 1280</p>
@@ -46,38 +55,37 @@
 					<img src="images/600_xiaomi-mi-note-10-xtmobile.png" alt="" />
 					<p>Xiaomi note 10</p>
 				</div>
+                                <% }%>
 			</div>
+                    </a>
 		</div>
 
 		<div id="headerpic"></div>
 
 		<div id="menu">
-            <ul>
-				<li><a href="index.jsp">Trang chủ </a></li>
-				<li><a href="listproduct">Danh sách sản phẩm</a></li>
-				<li><a href="dienthoai.html">Điện thoại</a></li>
-				<li><a href="phukien.html">Phụ kiện </a></li>
-				<li><a href="mayanh.html">Máy ảnh</a></li>
-				<li><a href="laptop.html">Laptop</a></li>
-				<%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
-				<li class="nut-dn">
-                                    <% 
-                                        TaiKhoan user = (TaiKhoan)session.getAttribute("user");
-                                    %>
-                                    <% if (user.getId().isEmpty()) {%>
-                                        <a href="dangnhap.html">Đăng nhập</a>
-                                        <%} else { %>
-                                        <div class="user">
-                                            <img class="avatar" src="images/RAVpower-RP-PB18.png" alt="avata"/>
-                                            <p>${user.ten}</p> 
-                                        </div>
-                                        <div class="user-thongtin">
-                                          <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
-                                          <div class="user-item user-dangxuat">Đăng xuất</div>
-                                        </div>
-                                        <% }%>
-				</li>
-            </ul>
+                    <ul>
+                        <li><a href="index.jsp">Trang chủ </a></li>
+                        <li><a href="listproduct">Danh sách sản phẩm</a></li>
+                        <li><a href="dienthoai.html">Điện thoại</a></li>
+                        <li><a href="phukien.html">Phụ kiện </a></li>
+                        <li><a href="mayanh.html">Máy ảnh</a></li>
+                        <li><a href="laptop.html">Laptop</a></li>
+                        <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
+                        <li class="nut-dn">
+                            <% if (user == null) {%>
+                                <a href="dangnhap.html">Đăng nhập</a>
+                                <%} else { %>
+                                <div class="user">
+                                    <img class="avatar" src="images/RAVpower-RP-PB18.png" alt="avata"/>
+                                    <p>${user.ten}</p> 
+                                </div>
+                                <div class="user-thongtin">
+                                  <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                  <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
+                                </div>
+                                <% }%>
+                        </li>
+                    </ul>
 		</div>
 
 		<div id="menubottom"></div>

@@ -1,11 +1,15 @@
+<%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    TaiKhoan user = (TaiKhoan)session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>zenlike1.0 by nodethirtythree</title>
+<title>Cửa hàng điện tử</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="style.css" />
@@ -40,12 +44,25 @@
 		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
 			<li><a href="admin.jsp">Trang chủ </a></li>
-			<li><a href="quanlisanpham" class="active">Quản lý sản phẩm</a></li>
+			<li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
 			<li><a href="#">Điện thoại</a></li>
 			<li><a href="#">Phụ kiện </a></li>
 			<li><a href="#">Máy ảnh</a></li>
 			<li><a href="#">Laptop</a></li>
-                        <li><a href="dangnhap.html">Đăng nhập</a></li>
+                        <li class="nut-dn">
+                            <% if (user == null) {%>
+                                <a href="dangnhap.html">Đăng nhập</a>
+                                <%} else { %>
+                                <div class="user">
+                                    <img class="avatar" src="images/RAVpower-RP-PB18.png" alt="avata"/>
+                                    <p>${user.ten}</p> 
+                                </div>
+                                <div class="user-thongtin">
+                                  <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                  <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
+                                </div>
+                                <% }%>
+                        </li>
                      
 		</ul>
 	</div>
@@ -77,11 +94,11 @@
                 <h1>Xác nhận xóa sản phẩm</h1>
                 Mã sản phẩm: ${b.id}<br>
                 Tên sản phẩm:${b.ten}<br>
-                Loại sản phẩm:${b.loaisp}<br>
-                Năm sản xuất:${b.namsx}<br>
-                Số lượng còn:${b.slcon}<br>
+                Loại sản phẩm:${b.loai}<br>
+                Giá:${b.gia}<br>
+                Số lượng còn:${b.soLuong}<br>
                 <a href="updatedelete?txtid=${b.id}"> YES</a><br>
-                <a  href="quanlisanpham">NO</a>      
+                <a href="quanlisanpham">NO</a> 
 
 
             </section>

@@ -1,3 +1,9 @@
+<%-- 
+    Document   : giohang
+    Created on : Jun 19, 2022, 3:29:18 PM
+    Author     : Admin
+--%>
+
 <%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -9,17 +15,14 @@
 %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>Cửa hàng điện tử</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="style.css" />
-<link rel="stylesheet" type="text/css" href="icon/fontawesome-free-6.1.1-web/css/all.min.css"/>
-</head>
-<body>
-
-<div id="upbg"></div>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="icon/fontawesome-free-6.1.1-web/css/all.min.css"/>
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <div id="upbg"></div>
 
 <div id="outer">
 
@@ -38,7 +41,7 @@
 			<input type="submit" class="submit" value="Search" />
 		</div>
 	</form>
-
+        
         <div class="cart">
                     <a href="CartController">
 			<i class="fa-solid fa-cart-shopping"></i>
@@ -59,7 +62,7 @@
                                 <% }%>
 			</div>
                     </a>
-	</div>
+		</div>
 
 	<div id="headerpic"></div>
 
@@ -68,12 +71,11 @@
 		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
 			<li><a href="index.jsp">Trang chủ </a></li>
-                        <li><a href="listproduct">Danh sách sản phẩm</a></li>
-                        <li><a href="dienthoai.html">Điện thoại</a></li>
-                        <li><a href="phukien.html">Phụ kiện </a></li>
-                        <li><a href="mayanh.html">Máy ảnh</a></li>
-                        <li><a href="laptop.html">Laptop</a></li>
-                        <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
+			<li><a href="listproduct">Danh sách sản phẩm</a></li>
+			<li><a href="#">Điện thoại</a></li>
+			<li><a href="#">Phụ kiện </a></li>
+			<li><a href="#">Máy ảnh</a></li>
+			<li><a href="#">Laptop</a></li>
                         <li class="nut-dn">
                             <% if (user == null) {%>
                                 <a href="dangnhap.html">Đăng nhập</a>
@@ -157,26 +159,25 @@
                     <thead>
                         <tr>
                             <th>Ảnh minh họa</th>
+                            <th>Mã giỏ hàng</th>
                             <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Loại sản phẩm</th>
-                            <th>Màu</th>
-                            <th>Giá</th>
+                            <th>Tên đăng nhập </th>
+                            <th>Ngày tạo giỏ</th>
+                            <th></th>
                             
-                            <th>Chi tiết </th>
                            
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${list}" var="E">
+                        <c:forEach items="${listt}" var="E">
                             <tr>
-                                <td><img class="anhminhhoa" src="images/product${E.id}.png" alt="alt"/></td>
+                                <td><img class="anhminhhoa" src="images/${E.idProduct}.png" alt="alt"/></td>
                                 <td>${E.id}</td>
-                                <td>${E.ten}</td>
-                                <td>${E.loai}</td>
-                                <td>${E.mau}</td>
-                                <td>${E.gia}</td>
-                                <td><a href="xemchitiet?txtiD=${E.id}">Xem chi tiết</a></td>
+                                <td>${E.idProduct}</td>
+                                <td>${E.idUser}</td>
+                                <td>${E.createDate}</td> 
+                                     
+                                <td><a href="DeleteCartController?txtiD=${E.id}">Xóa sản phẩm</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -208,6 +209,5 @@
 	</div>
 	
 </div>
-
-</body>
+    </body>
 </html>

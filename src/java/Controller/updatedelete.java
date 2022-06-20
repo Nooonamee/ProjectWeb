@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.CRUD;
 import Model.sanPham;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -28,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 public class updatedelete extends HttpServlet {
     public final CRUD db;
     public String url;
-    public updatedelete() throws SQLException {
+    public updatedelete() throws SQLException, SQLServerException, ClassNotFoundException {
         this.db = new CRUD();
     }
    
@@ -43,7 +44,6 @@ public class updatedelete extends HttpServlet {
             
             db.delete(code);
           List<sanPham> list =db.getProduct();
-//        request.setAttribute("p", p);
         request.setAttribute("list", list);
         getServletContext().getRequestDispatcher("/quanlisanpham.jsp").forward(request, response); 
         } catch (SQLException ex) {
@@ -52,19 +52,5 @@ public class updatedelete extends HttpServlet {
             Logger.getLogger(updatedelete.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       
-    }
-
-   
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

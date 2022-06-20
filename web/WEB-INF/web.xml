@@ -29,6 +29,10 @@
         <servlet-name>addbookservlet</servlet-name>
         <servlet-class>Controller.addbookservlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddProductController</servlet-name>
+        <servlet-class>Controller.AddProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>sendmail</servlet-name>
         <url-pattern>/sendmail</url-pattern>
@@ -54,9 +58,17 @@
         <servlet-name>search</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductController</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        
+</welcome-file-list>
 </web-app>

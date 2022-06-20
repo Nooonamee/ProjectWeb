@@ -5,7 +5,9 @@
  */
 package DAO;
 
+import Model.Cart;
 import Model.sanPham;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,27 +19,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.catalina.Session;
 
-/**
- *
- * @author VAN TAI
- */
+
 public class CRUD {
     private Connection conn;
     private ResultSet rs;
-    public CRUD() {
+    public CRUD() throws SQLServerException, SQLException, ClassNotFoundException{
         conn = ConnectSql.getConnection();
     }
-     public void delete(String code) throws SQLException{
+    public void delete(String code) throws SQLException{
         String ISSql = "delete from sanPham where id=? ";
        
-       PreparedStatement ps = conn.prepareStatement(ISSql);
-       ps.setString(1, code);
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setString(1, code);
        
-       ps.executeUpdate();
+        ps.executeUpdate();
        
     }
-     public List<sanPham> getProduct() throws SQLException, ParseException{
+    public List<sanPham> getProduct() throws SQLException, ParseException{
         List<sanPham> list = new ArrayList<>();
         
         String selectName = "SELECT * FROM sanPham"; 
@@ -61,27 +61,107 @@ public class CRUD {
             p.setGia(gia);
             p.setSoLuong(daBan);
             p.setDaBan(daBan);
-            
-           
-            
             list.add(p);
         }
         
         return list;
     }
-      public void update(int id, String ten, String moTa,String loai,String mau ,int gia, int soLuong, int daBan) throws SQLException{
-        String ISSql = "UPDATE Product SET id=?, ten=?, moTa=? ,loai=? ,mau= ?,gia= ?,soLuong= ?,mau= ? WHERE id=?";
+    public void update(int id, String ten ,String loai ,int gia, int soLuong) throws SQLException{
+        String ISSql = "UPDATE sanPham SET ten=?, loai=?, gia= ?,soLuong= ? WHERE id=?";
                 
         PreparedStatement ps = conn.prepareStatement(ISSql);
-        ps.setInt(1, id);
-        ps.setString(2, ten);
-        ps.setString(3, moTa);
-        ps.setString(4, loai);
-        ps.setString(5, mau);
-        ps.setInt(6, gia);
-        ps.setInt(7, soLuong);
-        ps.setInt(8, daBan);
+        ps.setString(1, ten);
+        ps.setString(2, loai);
+        ps.setInt(3, gia);
+        ps.setInt(4, soLuong);
+        ps.setInt(5, id);
         ps.executeUpdate();
        
+    }
+      //new
+     public int saveCart(Cart tk) throws SQLException{
+        
+        String ISSql = "INSERT INTO cart"
+                + " (id, idp, tendn, ngayorder) VALUES "
+                + "(?,?,?,?);";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setString(1, tk.getId());
+        ps.setString(2, tk.getIdProduct());
+        ps.setString(3, tk.getIdUser());
+        ps.setString(4, tk.getCreateDate());
+        
+       
+        return ps.executeUpdate();
+    }
+     public String layTK() throws SQLException{
+        String sql = "SELECT TOP 1 * FROM dangnhap";
+        String tendn ="";
+               PreparedStatement ps = conn.prepareStatement(sql);
+               
+               rs = ps.executeQuery();
+           while(rs.next()){
+               tendn = rs.getString("tendn");
+           }
+        return tendn;
+    }
+    public String layidCart() throws SQLException{
+        String ISSql = "SELECT TOP 1 id FROM cart ORDER BY iDP DESC";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        
+        rs = ps.executeQuery();
+        String luotMuon = "";
+        while(rs.next()){
+            luotMuon = rs.getString("id");
+        }
+        return luotMuon;
+    }
+    public List<Cart> getCart(String idU) throws SQLException, ParseException{
+        List<Cart> list = new ArrayList<>();
+        
+        String selectName = "select * from cart where tendn=?"; 
+        PreparedStatement ps = conn.prepareStatement(selectName);
+        
+        ps.setString(1, idU);
+        rs = ps.executeQuery();
+        while(rs.next()){
+            
+            String id = rs.getString("id");
+            String idP = rs.getString("idp");
+            String idUser = rs.getString("tendn");
+            String ngay=rs.getString("ngayorder");
+            Cart p = new Cart(id, idP, idUser, ngay);
+
+            list.add(p);
+        }
+        
+        return list;
+    }
+    public void deleteCart(String id) throws SQLException{
+        String ISSql = "DELETE FROM cart WHERE id=? "
+               ;
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setString(1, id);
+        ps.executeUpdate();
+    }
+    public void deleteDN() throws SQLException{
+        String ISSql = "DELETE FROM dangnhap";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        
+        ps.executeUpdate();
+    }
+    public int saveProduct(sanPham sp) throws SQLException{
+        
+        String ISSql = "INSERT INTO sanPham"
+                + " (id, ten, loai, gia, soLuong) VALUES "
+                + "(?,?,?,?,?);";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setInt(1, sp.getId());
+        ps.setString(2, sp.getTen());
+        ps.setString(3, sp.getLoai());
+        ps.setInt(4, sp.getGia());
+        ps.setInt(5, sp.getSoLuong());
+        
+       
+        return ps.executeUpdate();
     }
 }

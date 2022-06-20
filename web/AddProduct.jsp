@@ -3,16 +3,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>Cửa hàng điện tử</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<body>
-
-<div id="upbg"></div>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <div id="upbg"></div>
 
 <div id="outer">
 
@@ -39,13 +36,13 @@
 	<div id="menu">
 		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
-                    <li><a href="admin.jsp">Trang chủ </a></li>
-                    <li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
-                    <li><a href="#">Điện thoại</a></li>
-                    <li><a href="#">Phụ kiện </a></li>
-                    <li><a href="#">Máy ảnh</a></li>
-                    <li><a href="#">Laptop</a></li>
-                    <li><a href="dangnhap.html">Đăng nhập</a></li>
+			<li><a href="admin.jsp">Trang chủ </a></li>
+			<li><a href="quanlisanpham" class="active">Quản lý sản phẩm</a></li>
+			<li><a href="#">Điện thoại</a></li>
+			<li><a href="#">Phụ kiện </a></li>
+			<li><a href="#">Máy ảnh</a></li>
+			<li><a href="#">Laptop</a></li>
+                        <li><a href="dangnhap.html">Đăng nhập</a></li>
                      
 		</ul>
 	</div>
@@ -68,19 +65,19 @@
                   <section class="sub3-header">
         <div class="sign_up-1">
             
-            <h1> Sửa sản phẩm</h1>
-        <form action="edit" method="post">
-            <label >Mã sản phẩm:</label> <input  class="input_box-1"  value="${b.id}"  type="text" name="id" >  <br>            
-            <input type="hidden" value="${b.id}" name="code1">
-            <label>Tên sản phẩm:</label> <input type="text" class="input_box-1" value="${b.ten}" name="ten"> <br>
-            <label >Loại sản phẩm:</label> <input class="input_box-1" value="${b.loai}"  type="text" name="loai"><br>
-            <label >Giá sản phẩm:</label> <input class="input_box-1" value="${b.gia}"  type="text" name="gia"><br>
-            <label >Số lượng còn:</label> <input class="input_box-1" value="${b.soLuong}"  type="text" name="soLuong"><br>
+            <h1> Thêm sản phẩm</h1>
+        <form action="addProduct" method="post">
+            <label >Mã sản phẩm:</label> <input  class="input_box-1"    type="text" name="id" >  <br>            
+            
+            <label>Tên sản phẩm:</label> <input type="text" class="input_box-1"  name="ten"> <br>
+            <label >Loại sản phẩm:</label> <input class="input_box-1"  type="text" name="loaisp"><br>
+            <label >Năm sản xuất:</label> <input class="input_box-1"  type="text" name="namsx"><br>
+            <label >Số lượng còn:</label> <input class="input_box-1"   type="text" name="slcon"><br>
           
            
-            <input  type="submit" value="Sửa ">
+            <input  type="submit" value="Thêm sản phẩm">
             
-            <a href="quanlisanpham"  >Update</a>
+            
             
         </form>
               </div>
@@ -109,6 +106,5 @@
 	</div>
 	
 </div>
-
-</body>
+    </body>
 </html>

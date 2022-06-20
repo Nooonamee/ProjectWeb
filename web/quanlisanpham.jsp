@@ -1,6 +1,10 @@
+<%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    TaiKhoan user = (TaiKhoan)session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,12 +44,25 @@
 		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
 			<li><a href="admin.jsp">Trang chủ </a></li>
-			<li><a href="quanlisanpham" class="active">Quản lý sản phẩm</a></li>
+			<li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
 			<li><a href="#">Điện thoại</a></li>
 			<li><a href="#">Phụ kiện </a></li>
 			<li><a href="#">Máy ảnh</a></li>
 			<li><a href="#">Laptop</a></li>
-                        <li><a href="dangnhap.html">Đăng nhập</a></li>
+                        <li class="nut-dn">
+                            <% if (user == null) {%>
+                                <a href="dangnhap.html">Đăng nhập</a>
+                                <%} else { %>
+                                <div class="user">
+                                    <img class="avatar" src="images/RAVpower-RP-PB18.png" alt="avata"/>
+                                    <p>${user.ten}</p> 
+                                </div>
+                                <div class="user-thongtin">
+                                  <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                  <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
+                                </div>
+                                <% }%>
+                        </li>
                      
 		</ul>
 	</div>
@@ -115,11 +132,11 @@
                             <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
                             <th>Loại sản phẩm</th>
-                            <th>Năm sản xuât</th>
                             <th>Giá</th>
+                            <th>Số lượng còn</th>
                             
-                            <th>Sửa </th>
-                            <th>Xóa </th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
                            
                         </tr>
                     </thead>
@@ -128,9 +145,9 @@
                             <tr>
                                 <td>${E.id}</td>
                                 <td>${E.ten}</td>
-                                <td>${E.loaisp}</td>
-                                <td>${E.namsx}</td> 
-                                <td>${E.slcon}</td>      
+                                <td>${E.loai}</td>
+                                <td>${E.gia}</td>
+                                <td>${E.soLuong}</td>
                                 <td><a href="viewedit?txtiD=${E.id}"> Sửa</a></td>
                                 <td><a href="viewdelete?txtiD=${E.id}"> Xóa</a></td>
                             </tr>

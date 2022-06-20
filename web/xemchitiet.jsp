@@ -1,14 +1,16 @@
+<%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% TaiKhoan user = (TaiKhoan)session.getAttribute("user");%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>zenlike1.0 by nodethirtythree</title>
+<title>Cửa hàng điện tử</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<!--<link rel="stylesheet" type="text/css" href="style.css" />-->
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 
@@ -35,17 +37,31 @@
 
 	<div id="headerpic"></div>
 
-	
+	<span style="color: green; font-size: 30px">${list}</span>
 	<div id="menu">
 		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
-			<li><a href="index.html">Trang chủ </a></li>
-			<li><a href="listproduct" class="active">News</a></li>
-			<li><a href="#">Điện thoại</a></li>
-			<li><a href="#">Phụ kiện </a></li>
-			<li><a href="#">Máy ảnh</a></li>
-			<li><a href="#">Laptop</a></li>
-                        <li><a href="dangnhap.html">Đăng nhập</a></li>
+			<li><a href="index.jsp">Trang chủ </a></li>
+                        <li><a href="listproduct">Danh sách sản phẩm</a></li>
+                        <li><a href="dienthoai.html">Điện thoại</a></li>
+                        <li><a href="phukien.html">Phụ kiện </a></li>
+                        <li><a href="mayanh.html">Máy ảnh</a></li>
+                        <li><a href="laptop.html">Laptop</a></li>
+                        <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
+                        <li class="nut-dn">
+                            <% if (user == null) {%>
+                                <a href="dangnhap.html">Đăng nhập</a>
+                                <%} else { %>
+                                <div class="user">
+                                    <img class="avatar" src="images/RAVpower-RP-PB18.png" alt="avata"/>
+                                    <p>${user.ten}</p> 
+                                </div>
+                                <div class="user-thongtin">
+                                  <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                  <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
+                                </div>
+                                <% }%>
+                        </li>
                      
 		</ul>
 	</div>
@@ -59,7 +75,7 @@
 			
 			<div class="contentarea">
 				<!-- Normal content area start -->
-            <style>
+                  <style>
                 .header{
                     text-align: center;
                   
@@ -67,25 +83,22 @@
                 .cl{
                     color: red;
                 }
-                .anhminhhoa {
-                    max-height: 60px;
-                    max-width: 80px;
-                }
             </style>
             <section class="header">
                 <nav >
 
                     
 
-                </nav> 
+                </nav>
+                
                 <h1>Chi Tiết Sản Phẩm</h1>
                 Mã sản phẩm: ${b.id}<br>
                 Tên sản phẩm:${b.ten}<br>
                 Loại sản phẩm:${b.loai}<br>
-                Mau :${b.mau}<br>
-                Gia :${b.gia}<br>
+                Màu :${b.mau}<br>
+                Giá :${b.gia}<br>
                 <a href="">Mua ngay</a><br>
-                <a  href="#">Thêm vào giỏ hàng</a>      
+                <a  href="addtocart?id=${b.id}">Thêm vào giỏ hàng</a>      
 
 
             </section>

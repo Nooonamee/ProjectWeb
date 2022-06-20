@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.CRUD;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ public class editupdate extends HttpServlet {
 
     private final CRUD db;
 
-    public editupdate() throws SQLException {
+    public editupdate() throws SQLException, SQLServerException, ClassNotFoundException {
         this.db = new CRUD();
     }
 
@@ -41,16 +42,15 @@ public class editupdate extends HttpServlet {
             throws ServletException, IOException {
         try {
 
-            int id = (int) request.getAttribute("id");
-            String ten = (String) request.getAttribute("ten");
-            String moTa = (String) request.getAttribute("moTa");
-            String loai = (String) request.getAttribute("loai");
-            String mau = (String) request.getAttribute("mau");
-            int gia = (int) request.getAttribute("gia");
-            int soLuong = (int) request.getAttribute("soLuong");
-            int daBan = (int) request.getAttribute("daBan");
-
-            db.update(id, ten, moTa, loai,mau,gia,soLuong,daBan);
+            int id = Integer.parseInt(request.getParameter("id"));
+            String ten = request.getParameter("ten");
+            String loai = request.getParameter("loai");
+            int gia = Integer.parseInt(request.getParameter("gia"));
+            int soLuong = Integer.parseInt(request.getParameter("soLuong"));
+            
+            System.out.println("chuan bị update...............");
+            db.update(id, ten, loai,gia,soLuong);
+            System.out.println("da update.........");
 
             getServletContext().getRequestDispatcher("/viewedit.jsp").forward(request, response);
 

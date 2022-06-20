@@ -55,6 +55,8 @@ public class Dangnhapservlet extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Dangnhapservlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        HttpSession sess = request.getSession();
+        sess.setAttribute("user", tk2);
         if(loai.equals("admin")){
             getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);   
         }
@@ -64,8 +66,6 @@ public class Dangnhapservlet extends HttpServlet {
         else{
             url = "/dangnhap.html"; 
         }
-        HttpSession sess = request.getSession();
-        sess.setAttribute("user", tk2);
         getServletContext().getRequestDispatcher(url).forward(request, response);   
        
     }
