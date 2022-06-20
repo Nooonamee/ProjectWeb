@@ -78,4 +78,4 @@
 
 	-- User
 	INSERT INTO UserWeb values (N'Đỗ Như Đức','admin','admin','0986172791',N'Hà Nội','admin')
-	INSERT INTO UserWeb values (N'Đỗ Như Đức','ducdonhu','123456','0986172791',N'Hà Nội','customer')
+	INSERT INTO UserWeb values (N'Đỗ Như Đức','ducdonhu','123456','0986172791',N'Hà Nội','khach')
