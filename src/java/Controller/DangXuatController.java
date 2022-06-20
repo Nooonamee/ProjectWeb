@@ -19,7 +19,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
-
 @WebServlet(name = "LogOutController", urlPatterns = {"/dangxuat"})
 public class DangXuatController extends HttpServlet {
 
@@ -28,8 +27,9 @@ public class DangXuatController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession sess = request.getSession();
         sess.setAttribute("user", null);
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
- 
+//        sess.invalidate();
+        response.sendRedirect("http://localhost:8080/BTLWeb");
+
     }
 
 }

@@ -28,12 +28,14 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Dangnhapservlet", urlPatterns = {"/Dangnhapservlet"})
 public class Dangnhapservlet extends HttpServlet {
+
     public final DangnhapDAO db;
     public String url;
+
     public Dangnhapservlet() throws SQLException, SQLServerException, ClassNotFoundException {
         this.db = new DangnhapDAO();
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -41,11 +43,11 @@ public class Dangnhapservlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        String tendn=request.getParameter("Tendn");
-        String mk=request.getParameter("Matkhau");
-        TaiKhoan tk= new TaiKhoan();
-        TaiKhoan tk2= null;
+            throws ServletException, IOException {
+        String tendn = request.getParameter("Tendn");
+        String mk = request.getParameter("Matkhau");
+        TaiKhoan tk = new TaiKhoan();
+        TaiKhoan tk2 = null;
         tk.setUser_name(tendn);
         tk.setPassword(mk);
         String loai = "";
@@ -57,17 +59,16 @@ public class Dangnhapservlet extends HttpServlet {
         }
         HttpSession sess = request.getSession();
         sess.setAttribute("user", tk2);
-        if(loai.equals("admin")){
-            getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);   
+
+        if (loai.equals("admin")) {
+            url = "/admin.jsp";
+        } else if (loai.equals("khach")) {
+            url = "";
+        } else {
+            url = "/dangnhap.html";
         }
-        if(loai.equals("khach")){
-            url = "/index.jsp";
-        }
-        else{
-            url = "/dangnhap.html"; 
-        }
-        getServletContext().getRequestDispatcher(url).forward(request, response);   
-       
+        response.sendRedirect("http://localhost:8080/BTLWeb"+url);
+
     }
 
     @Override
@@ -76,6 +77,3 @@ public class Dangnhapservlet extends HttpServlet {
     }// </editor-fold>
 
 }
-
-
-
