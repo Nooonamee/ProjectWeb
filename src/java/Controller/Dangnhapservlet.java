@@ -73,7 +73,7 @@ public class Dangnhapservlet extends HttpServlet {
             url = "/admin.jsp";
         }
         else if(loai.equals("khach")){
-            url = "/index.jsp";
+            url = "";
         }
         else{
             url = "/dangnhap.html"; 
