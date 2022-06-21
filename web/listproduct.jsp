@@ -1,11 +1,16 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Cart"%>
 <%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     TaiKhoan user = (TaiKhoan)session.getAttribute("user");
+    ArrayList<Cart> listSP = (ArrayList<Cart>)session.getAttribute("listSanPham");
     int q = 0;
-    if (user != null) q = 2;
+    if (listSP != null) {
+        q = listSP.size();
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -44,22 +49,18 @@
 			<i class="fa-solid fa-cart-shopping"></i>
                         <div class="cart-quantity"><%=q%></div>
 			<div class="cart-list">
-                            <% if (user == null) {%>
+                            <% if (q == 0) {%>
                                 <p class="cart-list-empty">Chưa có đơn hàng nào được thêm</p>
                                 <%} else { %>
-				<div class="cart-item">
-					<img src="images/201406051522109725_Nokia 1280.png" alt="" />
-					<p>Nokia 1280</p>
-				</div>
-
-				<div class="cart-item">
-					<img src="images/600_xiaomi-mi-note-10-xtmobile.png" alt="" />
-					<p>Xiaomi note 10</p>
-				</div>
-                                <% }%>
+				<% for (Cart sp : listSP) {%>
+                                    <div class="cart-item">
+                                        <img src="images/product<%=sp.getIdProduct()%>.png" alt="" />
+                                        <p><%=sp.getTen()%></p>
+                                    </div>
+                                <% }}%>
 			</div>
                     </a>
-	</div>
+		</div>
 
 	<div id="headerpic"></div>
 
