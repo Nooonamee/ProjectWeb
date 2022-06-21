@@ -70,10 +70,10 @@
 		<ul>
 			<li><a href="index.jsp">Trang chủ </a></li>
                         <li><a href="listproduct">Danh sách sản phẩm</a></li>
-                        <li><a href="dienthoai.html">Điện thoại</a></li>
-                        <li><a href="phukien.html">Phụ kiện </a></li>
-                        <li><a href="mayanh.html">Máy ảnh</a></li>
-                        <li><a href="laptop.html">Laptop</a></li>
+                        <li><a href="dienthoai">Điện thoại</a></li>
+                        <li><a href="phukien">Phụ kiện </a></li>
+                        <li><a href="mayanh">Máy ảnh</a></li>
+                        <li><a href="laptop">Laptop</a></li>
                         <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
                         <li class="nut-dn">
                             <% if (user == null) {%>

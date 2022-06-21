@@ -50,4 +50,28 @@ public class listproductDAO {
 
         return list;
     }
+    public List<sanPham> laySanPhamLoai(String l) throws SQLException, ParseException {
+        List<sanPham> list = new ArrayList<>();
+
+        String selectName = "select * from sanPham where loai = ?";
+        PreparedStatement ps = conn.prepareStatement(selectName);
+        ps.setString(1, l);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            int id = Integer.parseInt(rs.getString("id"));
+            String ten = rs.getString("ten");
+            String moTa = rs.getString("moTa");
+            String loai = rs.getString("loai");
+            String mau = rs.getString("mau");
+            int gia = rs.getInt("gia");
+            int soLuong = rs.getInt("soLuong");
+            int daBan = rs.getInt("daBan");
+
+            sanPham p = new sanPham(id, ten, moTa, loai, mau, gia, soLuong, daBan);
+
+            list.add(p);
+        }
+
+        return list;
+    }
 }

@@ -1,3 +1,4 @@
+<%@page import="Model.sanPham"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Cart"%>
 <%@page import="Model.TaiKhoan"%>
@@ -7,6 +8,7 @@
 <% 
     TaiKhoan user = (TaiKhoan)session.getAttribute("user");
     ArrayList<Cart> listSP = (ArrayList<Cart>)session.getAttribute("listSanPham");
+    ArrayList<sanPham> listSPanh = (ArrayList<sanPham>)request.getAttribute("listSPanh");
     int q = 0;
     if (listSP != null) {
         q = listSP.size();
@@ -92,58 +94,29 @@
 			</div>
 
 			<div class="divider1"></div>
+                        
+                        <div id="primarycontainer">
+                            <div id="primarycontent">
+                                <% for (sanPham sp : listSPanh) {%>
+                                <div class="post">
+                                    <h4>Dien Thoai <%=sp.getTen()%></h4>
+                                    <div class="contentarea">
+                                        <div class="details">Được đăng bởi<a href="#"> Huy</a> 17/06/2022</div>
+                                        <img src="images/product<%=sp.getId()%>.png" class="left"
+                                                alt="anh sp" />
 
-			<div id="primarycontainer">
-				<div id="primarycontent">
-					<div class="post">
-						<h4>Nokia 1280</h4>
+                                        <ul class="controls">
+                                                <li><a href="#" class="printerfriendly">Bạn bè</a></li>
+                                                <li><a href="#" class="comments">Bình luận (20)</a></li>
+                                                <li><a href="#" class="more">Đọc Thêm</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-						<div class="contentarea">
-							<div class="details">Được đăng bởi<a href="#"> Tuấn Hùng</a> 12/06/2022</div>
-							<img src="images/201406051522109725_Nokia 1280.png" class="left"
-								alt="A chinese lion statue" />
-
-							<ul class="controls">
-								<li><a href="#" class="printerfriendly">Bạn bè</a></li>
-								<li><a href="#" class="comments">Comments (18)</a></li>
-								<li><a href="#" class="more">Đọc Thêm</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="divider2"></div>
-
-					<div class="post">
-						<h2>Máy ảnh canon</h2>
-						<div class="contentarea">
-							<div class="details">Được đăng bởi <a href="#">Tuấn Hùng</a> 12/06/2022</div>
-							<img src="images/TB1129.png" class="left" />
-
-							<ul class="controls">
-								<li><a href="#" class="friendly">Bạn bè</a></li>
-								<li><a href="#" class="comments">Bình luận (18)</a></li>
-								<li><a href="#" class="more">Đọc Thêm</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="divider2"></div>
-
-					<div class="post">
-						<h4>LapTop Asus</h4>
-						<div class="contentarea">
-							<div class="details">Đăng bởi <a href="#">Tuấn Hùng</a> 12/06/2022</div>
-							<img src="images/product08.png" class="left" />
-							<ul class="controls">
-								<li><a href="#" class="friendly">Bạn bè</a></li>
-								<li><a href="#" class="comments"> Bình luận(18)</a></li>
-								<li><a href="#" class="more">Đọc Thêm</a></li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-			</div>
+                                    <div class="divider2"></div>
+                                <%}%>
+                            </div>
+                        </div>
 
 			<div id="secondarycontent">
 				<div>
@@ -161,10 +134,10 @@
 		</div>
 
 		<div id="footer">
-			<div class="left">&copy; 2006 Your Website Name. All rights reserved.</div>
+			<div class="left">BTL lập trình web</div>
 			<div class="right">
 				Được làm bởi 
-				<a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a>
+				<a href="">Nhóm 7</a>
 			</div>
 		</div>
 

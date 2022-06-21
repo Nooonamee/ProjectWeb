@@ -163,7 +163,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for (Cart sp : listSP) {%>
+                        <% if (q>0) for (Cart sp : listSP) {%>
                             <tr>
                                 <td><img class="anhminhhoa" src="images/product<%=sp.getIdProduct()%>.png" alt="alt"/></td>
                                 <td><%=sp.getTen()%></td>

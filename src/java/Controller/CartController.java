@@ -31,16 +31,6 @@ public class CartController extends HttpServlet {
     public CartController() throws SQLException, SQLServerException, ClassNotFoundException {
         this.crud = new CRUD();
     }
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -55,38 +45,18 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            String id = crud.layTK();
-            List<Cart> list = crud.getCart(id);
-            request.setAttribute("listt", list);
+//        try {
+//            String id = crud.layTK();
+//            List<Cart> list = crud.getCart(id);
+//            request.setAttribute("listt", list);
             
-            getServletContext().getRequestDispatcher("/giohang.jsp").forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(CartController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(CartController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+//            response.sendRedirect("./giohang.jsp");
+        request.getRequestDispatcher("/giohang.jsp").forward(request, response);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(CartController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (ParseException ex) {
+//            Logger.getLogger(CartController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     
 }

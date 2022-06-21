@@ -3,16 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/index.jsp</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/quanlisanpham.jsp</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/xemchitiet.jsp</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/Dangnhapservlet.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/CRUD.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/AddProductController.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/AddProduct.jsp</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/giohang.jsp</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/DangXuatController.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/listproduct.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/ProjectWeb/src/java/Controller/dienThoaiController.java</file>
+            <file>file:/C:/Users/Admin/Desktop/ProjectWeb/src/java/DAO/ConnectSql.java</file>
+            <file>file:/C:/Users/Admin/Desktop/ProjectWeb/web/dienThoai.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/ProjectWeb/web/index.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/ProjectWeb/web/laptop.jsp</file>
         </group>
     </open-files>
 </project-private>

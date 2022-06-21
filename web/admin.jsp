@@ -2,13 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    TaiKhoan user = (TaiKhoan) session.getAttribute("user");
-    if (user == null) {
-%>        
-<c:redirect url="http://localhost:8080/BTLWeb"/>
-<%
-    }
+<% 
+    TaiKhoan user = (TaiKhoan)session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
@@ -69,34 +64,12 @@
                      
 		</ul>
 	</div>
-	<div id="menubottom"></div>
-
-	
-	<div id="content">
-
-		<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
-		<div id="normalcontent">
+        <% if (user.getLoai().equals("admin")) {%>
+	<div style = "height: 100px; font-size: 20px; display: flex;justify-content: center;align-items: center;">Chào Admin</div>
+        <%} else response.sendRedirect("./");%>
+        
 			
-			<div class="contentarea">
-		
-            
-       
-			
-
-				<!-- Normal content area end -->
-		
-	
-		
-
-
-		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
-		
-
-		
-		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
-		
-
-
+	<div class="contentarea">
 	</div>
 
 	<div id="footer">
