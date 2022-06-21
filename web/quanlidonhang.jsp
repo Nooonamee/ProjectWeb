@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="Model.sanPham"%>
 <%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -50,11 +52,7 @@
                 <ul>
                     <li><a href="admin.jsp">Trang chủ </a></li>
                     <li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
-                    <li>
-                        <form action="quanlidonhang" method="post">
-                            <button>Quản lý</button>
-                        </form>
-                    </li>
+                    <li><a href="admin.jsp">Quản lý</a></li>
                     <li><a href="index.html">Người dùng</a></li>
                     <li class="nut-dn">
                         <% if (user == null) {%>
@@ -73,13 +71,26 @@
 
                 </ul>
             </div>
-            <% if (user.getLoai()
-            .equals("admin")) {%>
-            <div style = "height: 100px; font-size: 20px; display: flex;justify-content: center;align-items: center;">Chào Admin</div>
-            <%} else
-        response.sendRedirect(
-                "./");%>
 
+            <table>
+                <%
+                    List<sanPham> list = (List<sanPham>) request.getAttribute("list");
+                    for (sanPham sp : list) {
+                %>
+                <tr>
+                    <td><%= sp.getId()%></td>
+                    <td><%= sp.getTen()%></td>
+                    <td><%= sp.getMoTa()%></td>
+                    <td><%= sp.getLoai()%></td>
+                    <td><%= sp.getMau()%></td> 
+                    <td><%= sp.getGia()%></td>
+                    <td><%= sp.getSoLuong()%></td>
+                    <td><%= sp.getDaBan()%></td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
 
             <div class="contentarea">
             </div>
