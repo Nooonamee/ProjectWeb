@@ -72,7 +72,7 @@
                     <li><a href="phukien">Phụ kiện </a></li>
                     <li><a href="mayanh">Máy ảnh</a></li>
                     <li><a href="laptop">Laptop</a></li>
-                        <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
+                    <li><a href="admin.jsp">Quản lý</a></li>
                     <li class="nut-dn">
                         <% if (user == null) {%>
                         <a href="dangnhap.html">Đăng nhập</a>
