@@ -30,13 +30,12 @@ public class searchDAO {
     public List<sanPham> search(String name) {
         try {
             List<sanPham> list=new ArrayList<>();
-            String sql="select * from Product2 where ten like ? or loai like ? or id like ? ";
+            String sql="select * from sanPham where ten like ? or loai like ? or id like ? ";
            
             PreparedStatement ps= conn.prepareStatement(sql);
             ps.setString(1,"%"+name+"%");
             ps.setString(2,"%"+name+"%");
             ps.setString(3,"%"+name+"%");
-            ps.setString(4,"%"+name+"%");
            
             ResultSet rs= ps.executeQuery();
             while (rs.next()){

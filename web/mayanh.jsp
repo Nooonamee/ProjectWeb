@@ -33,12 +33,12 @@
 			</div>
 		</div>
 
-		<form method="post" action="">
-			<div id="search">
-				<input type="text" class="text" maxlength="64" name="keywords"/>
-				<input type="submit" class="submit" value="Tìm Kiếm"/>
-			</div>
-		</form>
+	<form method="post" action="search">
+		<div id="search">
+			<input type="text" class="text" maxlength="64" name="name" />
+			<input type="submit" class="submit" value="Search" />
+		</div>
+	</form>
 		
 		<div class="cart">
                     <a href="CartController">

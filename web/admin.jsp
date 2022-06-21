@@ -34,12 +34,12 @@
             </div>
 
 
-            <form method="post" action="">
-                <div id="search">
-                    <input type="text" class="text" maxlength="64" name="keywords" />
-                    <input type="submit" class="submit" value="Search" />
-                </div>
-            </form>
+        <form method="post" action="search">
+		<div id="search">
+			<input type="text" class="text" maxlength="64" name="name" />
+			<input type="submit" class="submit" value="Search" />
+		</div>
+	</form>
 
 
             <div id="headerpic"></div>
@@ -74,7 +74,7 @@
             </div>
 
             <div id="footer">
-                <div class="left">&copy; 2006 Your Website Name. All rights reserved.</div>
+                <div class="left">BTL lập trình web</div>
                 <div class="right">Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree Design</a></div>
             </div>
 

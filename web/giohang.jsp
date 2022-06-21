@@ -179,7 +179,7 @@
 	</div>
 
 	<div id="footer">
-			<div class="left">&copy; 2022 Your Website Name. All rights reserved.</div>
+			<div class="left">BTL lập trình web</div>
 			<div class="right">Được làm bởi <a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a></div>
 	</div>
 	
