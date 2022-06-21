@@ -2,13 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    TaiKhoan user = (TaiKhoan) session.getAttribute("user");
-    if (user == null) {
-%>        
-<c:redirect url="http://localhost:8080/BTLWeb"/>
-<%
-    }
+<% 
+    TaiKhoan user = (TaiKhoan)session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
