@@ -62,9 +62,9 @@
                     <ul>
                         <li><a href="index.jsp">Trang chủ </a></li>
                         <li><a href="listproduct">Danh sách sản phẩm</a></li>
-                        <li><a href="dienthoai.html">Điện thoại</a></li>
-                        <li><a href="phukien.jsp">Phụ kiện </a></li>
-                        <li><a href="mayanh.html">Máy ảnh</a></li>
+                        <li><a href="dienthoai">Điện thoại</a></li>
+                        <li><a href="phukien">Phụ kiện </a></li>
+                        <li><a href="mayanh">Máy ảnh</a></li>
                         <li><a href="laptop">Laptop</a></li>
                         <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
                         <li class="nut-dn">
@@ -150,10 +150,10 @@
 					<h4>Các loại sản phẩm</h4>
 					<div class="contentarea">
 						<ul class="linklist">
-							<li><a href="dienthoai.html">Điện Thoại</a></li>
-							<li><a href="mayanh.html">Máy ảnh</a></li>
-							<li><a href="phukien.html">Phụ kiện</a></li>
-							<li><a href="laptop.html">Laptop</a></li>
+							<li><a href="dienthoai">Điện Thoại</a></li>
+							<li><a href="mayanh">Máy ảnh</a></li>
+							<li><a href="phukien">Phụ kiện</a></li>
+							<li><a href="laptop">Laptop</a></li>
 						</ul>
 					</div>
 				</div>
