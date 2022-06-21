@@ -13,18 +13,26 @@ public class Cart {
     private String id;
     private String idProduct;
     private String createDate;
-    private String idUser; 
+    private String idUser, ten; 
 
-    public Cart(String id, String idProduct,String idUser, String createDate) {
+    public Cart(String id, String idProduct,String idUser, String createDate, String ten) {
         this.id = id;
         this.idProduct = idProduct;
         this.idUser = idUser;
         this.createDate = createDate;
-        
+        this.ten = ten;
     }
 
     public Cart() {
          
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public String getTen() {
+        return ten;
     }
 
     public void setIdUser(String idUser) {

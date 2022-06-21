@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
@@ -55,28 +56,39 @@ public class AddToCartController extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("do get ..........");
             String idP = request.getParameter("id");
+            String ten = "";
+        try {
+            ten = crud.layTenSP(idP);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddToCartController.class.getName()).log(Level.SEVERE, null, ex);
+        }
             Date datee = new Date();
             String ngayOrder = new SimpleDateFormat("yyyy/MM/dd").format(datee.getTime());
             String tendn;
             HttpSession sess = request.getSession();
             TaiKhoan tk = (TaiKhoan)sess.getAttribute("user");
+            List<Cart> listSP = (List<Cart>)sess.getAttribute("listSanPham");
             tendn = tk.getUser_name();
-//        try {
-//            tendn = crud.layTK();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(AddToCartController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
             String id="";
         try {
-            id = Integer.parseInt(crud.layidCart())+1+"";
+            if(crud.layidProCart(idP).equals(idP)){
+                id = Integer.parseInt(crud.layidCart(idP))+1+"";
+            }else{
+                id = 1+"";
+            }
         } catch (SQLException ex) {
             Logger.getLogger(AddToCartController.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-            Cart cart = new Cart(id, idP,tendn, ngayOrder );
-            System.out.println(cart);
+            Cart cart = new Cart(id, idP,tendn, ngayOrder, ten);
+            listSP.add(cart);
+            sess.setAttribute("listSanPham", listSP);
             try {
-                crud.saveCart(cart);
+                if(cart.getId().equals("1")){
+                    crud.saveCart(cart);
+                }else{
+                    crud.updateCart(cart);
+                }
                 request.setAttribute("list", "Thêm vào giỏ hàng thành công");
                 System.out.println("thanh cong...");
             } catch (SQLException ex) {

@@ -82,15 +82,27 @@ public class CRUD {
      public int saveCart(Cart tk) throws SQLException{
         
         String ISSql = "INSERT INTO cart"
-                + " (id, idp, tendn, ngayorder) VALUES "
-                + "(?,?,?,?);";
+                + " (id, idp, tendn, ngayorder, ten) VALUES "
+                + "(?,?,?,?,?);";
         PreparedStatement ps = conn.prepareStatement(ISSql);
         ps.setString(1, tk.getId());
         ps.setString(2, tk.getIdProduct());
         ps.setString(3, tk.getIdUser());
         ps.setString(4, tk.getCreateDate());
+        ps.setString(5, tk.getTen());
         
        
+        return ps.executeUpdate();
+    }
+     public int updateCart(Cart tk) throws SQLException{
+        
+        String ISSql = "UPDATE cart"
+                + " SET id=? "
+                + "where idp=?";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setString(1, tk.getId());
+        ps.setString(2, tk.getIdProduct());
+        
         return ps.executeUpdate();
     }
      public String layTK() throws SQLException{
@@ -104,16 +116,30 @@ public class CRUD {
            }
         return tendn;
     }
-    public String layidCart() throws SQLException{
-        String ISSql = "SELECT TOP 1 id FROM cart ORDER BY iDP DESC";
+    public String layidCart(String idp) throws SQLException{
+        String ISSql = "SELECT TOP 1 id FROM cart where idp=? ORDER BY iDP DESC";
         PreparedStatement ps = conn.prepareStatement(ISSql);
+        
+        ps.setString(1, idp);
         
         rs = ps.executeQuery();
         String luotMuon = "";
         while(rs.next()){
-            luotMuon = rs.getString("id");
+            luotMuon += rs.getString("id");
         }
         return luotMuon;
+    }
+    public String layidProCart(String idp) throws SQLException{
+        String ISSql = "SELECT TOP 1 idp FROM cart where idp=? ORDER BY iDP DESC";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setString(1, idp);
+        
+        rs = ps.executeQuery();
+        String idP = "";
+        while(rs.next()){
+            idP += rs.getString("idp");
+        }
+        return idP;
     }
     public List<Cart> getCart(String idU) throws SQLException, ParseException{
         List<Cart> list = new ArrayList<>();
@@ -129,7 +155,8 @@ public class CRUD {
             String idP = rs.getString("idp");
             String idUser = rs.getString("tendn");
             String ngay=rs.getString("ngayorder");
-            Cart p = new Cart(id, idP, idUser, ngay);
+            String ten=rs.getString("ten");
+            Cart p = new Cart(id, idP, idUser, ngay, ten);
 
             list.add(p);
         }
@@ -137,8 +164,7 @@ public class CRUD {
         return list;
     }
     public void deleteCart(String id) throws SQLException{
-        String ISSql = "DELETE FROM cart WHERE id=? "
-               ;
+        String ISSql = "DELETE FROM cart WHERE id=? ";
         PreparedStatement ps = conn.prepareStatement(ISSql);
         ps.setString(1, id);
         ps.executeUpdate();
@@ -150,18 +176,28 @@ public class CRUD {
         ps.executeUpdate();
     }
     public int saveProduct(sanPham sp) throws SQLException{
-        
-        String ISSql = "INSERT INTO sanPham"
-                + " (id, ten, loai, gia, soLuong) VALUES "
-                + "(?,?,?,?,?);";
+        System.out.println(sp);
+        String ISSql = "INSERT INTO sanPham (ten, loai, gia, soLuong) VALUES (?,?,?,?);";
         PreparedStatement ps = conn.prepareStatement(ISSql);
-        ps.setInt(1, sp.getId());
-        ps.setString(2, sp.getTen());
-        ps.setString(3, sp.getLoai());
-        ps.setInt(4, sp.getGia());
-        ps.setInt(5, sp.getSoLuong());
+        ps.setString(1, sp.getTen());
+        ps.setString(2, sp.getLoai());
+        ps.setInt(3, sp.getGia());
+        ps.setInt(4, sp.getSoLuong());
         
        
         return ps.executeUpdate();
+    }
+    
+    public String layTenSP(String idSP) throws SQLException {
+        String ISSql = "SELECT ten FROM sanPham where id=?";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setString(1, idSP);
+        
+        rs = ps.executeQuery();
+        String ten = "";
+        while(rs.next()){
+            ten += rs.getString("ten");
+        }
+        return ten;
     }
 }

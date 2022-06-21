@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>zenlike1.0 by nodethirtythree</title>
+<title>Cửa hàng điện tử</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="style.css" />

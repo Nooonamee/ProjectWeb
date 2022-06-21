@@ -1,17 +1,16 @@
-<%-- 
-    Document   : giohang
-    Created on : Jun 19, 2022, 3:29:18 PM
-    Author     : Admin
---%>
-
+<%@page import="Model.Cart"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     TaiKhoan user = (TaiKhoan)session.getAttribute("user");
+    ArrayList<Cart> listSP = (ArrayList<Cart>)session.getAttribute("listSanPham");
     int q = 0;
-    if (user != null) q = 2;
+    if (listSP != null) {
+        q = listSP.size();
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -19,7 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css" />
         <link rel="stylesheet" type="text/css" href="icon/fontawesome-free-6.1.1-web/css/all.min.css"/>
-        <title>JSP Page</title>
+        <title>Giỏ hàng</title>
     </head>
     <body>
         <div id="upbg"></div>
@@ -47,19 +46,15 @@
 			<i class="fa-solid fa-cart-shopping"></i>
                         <div class="cart-quantity"><%=q%></div>
 			<div class="cart-list">
-                            <% if (user == null) {%>
+                            <% if (q == 0) {%>
                                 <p class="cart-list-empty">Chưa có đơn hàng nào được thêm</p>
                                 <%} else { %>
-				<div class="cart-item">
-					<img src="images/201406051522109725_Nokia 1280.png" alt="" />
-					<p>Nokia 1280</p>
-				</div>
-
-				<div class="cart-item">
-					<img src="images/600_xiaomi-mi-note-10-xtmobile.png" alt="" />
-					<p>Xiaomi note 10</p>
-				</div>
-                                <% }%>
+                                <% for (Cart sp : listSP) {%>
+                                    <div class="cart-item">
+                                        <img src="images/product<%=sp.getId()%>.png" alt="" />
+                                        <p><%=sp.getId()%></p>
+                                    </div>
+                                <% }}%>
 			</div>
                     </a>
 		</div>
@@ -85,8 +80,8 @@
                                     <p>${user.ten}</p> 
                                 </div>
                                 <div class="user-thongtin">
-                                  <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
-                                  <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
+                                    <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                    <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
                                 </div>
                                 <% }%>
                         </li>
@@ -159,48 +154,28 @@
                     <thead>
                         <tr>
                             <th>Ảnh minh họa</th>
-                            <th>Mã giỏ hàng</th>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên đăng nhập </th>
-                            <th>Ngày tạo giỏ</th>
-                            <th></th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Ngày thêm</th>
+                            <th>Xóa sản phầm</th>
                             
                            
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${listt}" var="E">
+                        <% for (Cart sp : listSP) {%>
                             <tr>
-                                <td><img class="anhminhhoa" src="images/${E.idProduct}.png" alt="alt"/></td>
-                                <td>${E.id}</td>
-                                <td>${E.idProduct}</td>
-                                <td>${E.idUser}</td>
-                                <td>${E.createDate}</td> 
+                                <td><img class="anhminhhoa" src="images/product<%=sp.getIdProduct()%>.png" alt="alt"/></td>
+                                <td><%=sp.getTen()%></td>
+                                <td><%=sp.getId()%></td>
+                                <td><%=sp.getCreateDate()%></td> 
                                      
                                 <td><a href="DeleteCartController?txtiD=${E.id}">Xóa sản phẩm</a></td>
                             </tr>
-                        </c:forEach>
+                        <%}%>
                     </tbody>
                     
                 </table>
-
-       
-			
-
-				<!-- Normal content area end -->
-		
-	
-		
-
-
-		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
-		
-
-		
-		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
-		
-
-
 	</div>
 
 	<div id="footer">

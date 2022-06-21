@@ -1,8 +1,17 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Cart"%>
 <%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% TaiKhoan user = (TaiKhoan)session.getAttribute("user");%>
+<% 
+    TaiKhoan user = (TaiKhoan)session.getAttribute("user");
+    ArrayList<Cart> listSP = (ArrayList<Cart>)session.getAttribute("listSanPham");
+    int q = 0;
+    if (listSP != null) {
+        q = listSP.size();
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +19,7 @@
 <title>Cửa hàng điện tử</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="icon/fontawesome-free-6.1.1-web/css/all.min.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -33,7 +43,23 @@
 			<input type="submit" class="submit" value="Search" />
 		</div>
 	</form>
-
+        <div class="cart">
+                    <a href="CartController">
+			<i class="fa-solid fa-cart-shopping"></i>
+                        <div class="cart-quantity"><%=q%></div>
+			<div class="cart-list">
+                            <% if (q == 0) {%>
+                                <p class="cart-list-empty">Chưa có đơn hàng nào được thêm</p>
+                                <%} else { %>
+				<% for (Cart sp : listSP) {%>
+                                    <div class="cart-item">
+                                        <img src="images/product<%=sp.getIdProduct()%>.png" alt="" />
+                                        <p><%=sp.getTen()%></p>
+                                    </div>
+                                <% }}%>
+			</div>
+                    </a>
+		</div>
 
 	<div id="headerpic"></div>
 
@@ -102,23 +128,7 @@
 
 
             </section>
-       
-			
-
-				<!-- Normal content area end -->
 		
-	
-		
-
-
-		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
-		
-
-		
-		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
-		
-
-
 	</div>
 
 	<div id="footer">
