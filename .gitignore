@@ -1,2 +1,6 @@
 /dist/
 /build/
+nbproject/build-impl.xml
+nbproject/private/private.properties
+nbproject/private/private.xml
+nbproject/project.properties
