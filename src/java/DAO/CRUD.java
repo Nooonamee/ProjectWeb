@@ -51,6 +51,7 @@ public class CRUD {
             String loai = rs.getString("loai");
             String mau = rs.getString("mau");
             int gia=rs.getInt("gia");
+            int soLuong=rs.getInt("soLuong");
             int daBan=rs.getInt("daBan");
             
             p.setId(id);
@@ -59,7 +60,7 @@ public class CRUD {
             p.setLoai(loai);
             p.setMau(mau);
             p.setGia(gia);
-            p.setSoLuong(daBan);
+            p.setSoLuong(soLuong);
             p.setDaBan(daBan);
             list.add(p);
         }
