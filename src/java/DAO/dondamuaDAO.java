@@ -59,5 +59,26 @@ public class dondamuaDAO {
         
         return list;
     }
+    
+    public List<Cart> laySPDaMuaAdmin() throws SQLException {
+        String sql = "select * from damua";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        List<Cart> list = new ArrayList<>();
+        
+        rs = ps.executeQuery();
+        while(rs.next()){
+            
+            String id = rs.getString("soluong");
+            String idP = rs.getString("idp");
+            String idUser = rs.getString("tendn");
+            String ngay=rs.getString("ngaymua");
+            String ten=rs.getString("ten");
+            Cart p = new Cart(id, idP, idUser, ngay, ten, laygiasp(idP));
+            
+            list.add(p);
+        }
+        
+        return list;
+    }
 
 }

@@ -36,12 +36,12 @@
             </div>
 
 
-        <form method="post" action="search">
-		<div id="search">
-			<input type="text" class="text" maxlength="64" name="name" />
-			<input type="submit" class="submit" value="Search" />
-		</div>
-	</form>
+            <form method="post" action="search">
+                <div id="search">
+                    <input type="text" class="text" maxlength="64" name="name" />
+                    <input type="submit" class="submit" value="Search" />
+                </div>
+            </form>
 
 
             <div id="headerpic"></div>
@@ -72,25 +72,49 @@
                 </ul>
             </div>
 
-            <table>
-                <%
-                    List<sanPham> list = (List<sanPham>) request.getAttribute("list");
-                    for (sanPham sp : list) {
-                %>
-                <tr>
-                    <td><%= sp.getId()%></td>
-                    <td><%= sp.getTen()%></td>
-                    <td><%= sp.getMoTa()%></td>
-                    <td><%= sp.getLoai()%></td>
-                    <td><%= sp.getMau()%></td> 
-                    <td><%= sp.getGia()%></td>
-                    <td><%= sp.getSoLuong()%></td>
-                    <td><%= sp.getDaBan()%></td>
-                </tr>
-                <%
-                    }
-                %>
-            </table>
+            <div class="tb">
+                <table class="table" boder="1">
+                    <thead>
+                        <tr>
+                            <th>Ảnh minh họa</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Ngày mua</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${list}" var="E">
+                            <tr>
+                                <td><img class="anhminhhoa" src="images/product${E.idProduct}.png" alt="alt"/></td>
+                                <td>${E.ten}</td>
+                                <td>${E.id}</td>
+                                <td>${E.createDate}</td>
+                                <td>${E.gia}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                    
+                </table>
+
+       
+			
+
+				<!-- Normal content area end -->
+		
+	
+		
+
+
+		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
+		
+
+		
+		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
+		
+
+
+	</div>
 
             <div class="contentarea">
             </div>
