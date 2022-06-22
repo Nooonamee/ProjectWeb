@@ -15,7 +15,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -106,7 +108,7 @@ public class CRUD {
         
         return ps.executeUpdate();
     }
-     public String layTK() throws SQLException{
+    public String layTK() throws SQLException{
         String sql = "SELECT TOP 1 * FROM dangnhap";
         String tendn ="";
                PreparedStatement ps = conn.prepareStatement(sql);
@@ -117,6 +119,7 @@ public class CRUD {
            }
         return tendn;
     }
+     
     public String layidCart(String idp) throws SQLException{
         String ISSql = "SELECT TOP 1 id FROM cart where idp=? ORDER BY iDP DESC";
         PreparedStatement ps = conn.prepareStatement(ISSql);
@@ -170,12 +173,6 @@ public class CRUD {
         ps.setString(1, id);
         ps.executeUpdate();
     }
-    public void deleteDN() throws SQLException{
-        String ISSql = "DELETE FROM dangnhap";
-        PreparedStatement ps = conn.prepareStatement(ISSql);
-        
-        ps.executeUpdate();
-    }
     public int saveProduct(sanPham sp) throws SQLException{
         System.out.println(sp);
         String ISSql = "INSERT INTO sanPham (ten, loai, gia, soLuong) VALUES (?,?,?,?);";
@@ -200,5 +197,32 @@ public class CRUD {
             ten += rs.getString("ten");
         }
         return ten;
+    }
+    
+    public void mua(int sl, sanPham p, String tendn) throws SQLException {
+        System.out.println("mua ................................");
+        String ISSql = "Delete from cart where idP=?";
+        PreparedStatement ps = conn.prepareStatement(ISSql);
+        ps.setString(1, p.getId()+"");
+        ps.executeUpdate();
+        System.out.println("xoa thanh cong .....................");
+        
+        String sql = "Update sanPham set soluong = soluong - ? where id = ?";
+        PreparedStatement ps2 = conn.prepareStatement(sql);
+        ps2.setInt(1, sl);
+        ps2.setInt(2, p.getId());
+        ps2.executeUpdate();
+        System.out.println("udate thanh cong .....................");
+        
+        String sql2 = "Insert into damua (soluong,idp,tendn,ngaymua,ten) values(?,?,?,?,?)";
+        Date datee = new Date();
+        String ngayMua = new SimpleDateFormat("yyyy/MM/dd").format(datee.getTime());
+        PreparedStatement ps3 = conn.prepareStatement(sql2);
+        ps3.setString(1, sl+"");
+        ps3.setString(2, p.getId()+"");
+        ps3.setString(3, tendn);
+        ps3.setString(4, ngayMua);
+        ps3.setString(5, p.getTen());
+        ps3.executeUpdate();
     }
 }

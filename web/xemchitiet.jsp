@@ -123,7 +123,7 @@
                 Loại sản phẩm:${b.loai}<br>
                 Màu :${b.mau}<br>
                 Giá :${b.gia}<br>
-                <a href="">Mua ngay</a><br>
+                <a href="muaController?id=${b.id}">Mua ngay</a><br>
                 <a  href="addtocart?id=${b.id}">Thêm vào giỏ hàng</a>      
 
 

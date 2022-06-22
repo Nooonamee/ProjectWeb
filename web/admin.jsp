@@ -4,9 +4,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     TaiKhoan user = (TaiKhoan) session.getAttribute("user");
-    if (user == null || user.getLoai().equals("khach")) {
+    if (user == null) {
 %>
-<c:redirect url="http://localhost:8080/BTLWeb"/>
+<c:redirect url="./"/>
 <%
     }
 %>
@@ -50,7 +50,9 @@
                 <ul>
                     <li><a href="admin.jsp">Trang chủ </a></li>
                     <li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
-                    <li><a href="quanlidonhang">Quản lý</a></li>
+                    <li>
+                        <a href="quanlisanpham">Quản lý</a>
+                    </li>
                     <li><a href="index.html">Người dùng</a></li>
                     <li class="nut-dn">
                         <% if (user == null) {%>
@@ -69,7 +71,14 @@
 
                 </ul>
             </div>
+            <% if (user.getLoai()
+            .equals("admin")) {%>
             <div style = "height: 100px; font-size: 20px; display: flex;justify-content: center;align-items: center;">Chào Admin</div>
+            <%} else
+        response.sendRedirect(
+                "./");%>
+
+
             <div class="contentarea">
             </div>
 

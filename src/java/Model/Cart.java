@@ -14,6 +14,7 @@ public class Cart {
     private String idProduct;
     private String createDate;
     private String idUser, ten; 
+    private int gia;
 
     public Cart(String id, String idProduct,String idUser, String createDate, String ten) {
         this.id = id;
@@ -21,6 +22,19 @@ public class Cart {
         this.idUser = idUser;
         this.createDate = createDate;
         this.ten = ten;
+    }
+    
+    public Cart(String id, String idProduct,String idUser, String createDate, String ten, int gia) {
+        this.id = id;
+        this.idProduct = idProduct;
+        this.idUser = idUser;
+        this.createDate = createDate;
+        this.ten = ten;
+        this.gia = gia;
+    }
+
+    public int getGia() {
+        return gia*Integer.parseInt(id);
     }
 
     public Cart() {

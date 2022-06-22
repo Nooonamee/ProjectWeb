@@ -8,7 +8,7 @@
     TaiKhoan user = (TaiKhoan) session.getAttribute("user");
     if (user != null && user.getLoai().equals("admin")) {
 %>
-    <c:redirect url="http://localhost:8080/BTLWeb/admin.jsp"/>
+    <c:redirect url="./admin.jsp"/>
 <%
     }
     ArrayList<Cart> listSP = (ArrayList<Cart>) session.getAttribute("listSanPham");
@@ -72,7 +72,7 @@
                     <li><a href="phukien">Phụ kiện </a></li>
                     <li><a href="mayanh">Máy ảnh</a></li>
                     <li><a href="laptop">Laptop</a></li>
-                    <li><a href="admin.jsp">Quản lý</a></li>
+                        <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
                     <li class="nut-dn">
                         <% if (user == null) {%>
                         <a href="dangnhap.html">Đăng nhập</a>
@@ -82,7 +82,7 @@
                             <p>${user.ten}</p> 
                         </div>
                         <div class="user-thongtin">
-                            <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                            <div class="user-item user-quanli-tk"><a href="dondamua">Quản lí tài khoản</a></div>
                             <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
                         </div>
                         <% }%>

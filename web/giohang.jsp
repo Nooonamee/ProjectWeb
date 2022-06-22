@@ -170,7 +170,7 @@
                                 <td><%=sp.getId()%></td>
                                 <td><%=sp.getCreateDate()%></td> 
                                      
-                                <td><a href="DeleteCartController?txtiD=${E.id}">Xóa sản phẩm</a></td>
+                                <td><a href="DeleteCartController?txtiD=<%=sp.getId()%>">Xóa sản phẩm</a></td>
                             </tr>
                         <%}%>
                     </tbody>

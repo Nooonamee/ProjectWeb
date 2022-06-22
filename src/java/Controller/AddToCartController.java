@@ -6,12 +6,10 @@
 package Controller;
 
 import DAO.CRUD;
-import DAO.DangkiDAO;
 import Model.Cart;
 import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,15 +30,6 @@ public class AddToCartController extends HttpServlet {
     public AddToCartController() throws SQLException, SQLServerException, ClassNotFoundException {
         this.crud = new CRUD();
     }
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -81,7 +70,14 @@ public class AddToCartController extends HttpServlet {
         }
             
             Cart cart = new Cart(id, idP,tendn, ngayOrder, ten);
-            listSP.add(cart);
+            boolean check = true;
+            for (Cart sp : listSP) {
+                if (sp.getIdProduct().equals(cart.getIdProduct())) {
+                    sp.setId(id);
+                    check = false;
+                }
+            }
+            if (check) listSP.add(cart);
             sess.setAttribute("listSanPham", listSP);
             try {
                 if(cart.getId().equals("1")){
@@ -98,23 +94,5 @@ public class AddToCartController extends HttpServlet {
 
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     
 }

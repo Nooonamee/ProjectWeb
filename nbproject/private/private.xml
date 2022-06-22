@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/index.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Model/Cart.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/dangnhap.html</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/Dangnhapservlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/dondamua.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/laptop.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/quanlisanpham.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/DeleteCartController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/CRUD.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/giohang.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/muaController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/DangkiDAO.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/admin.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/quanlisanpham.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/listproductDAO.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/quanlidonhang.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/laptopController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/dangki.html</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/web/xemchitiet.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/AddToCartController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/listproduct.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/DangXuatController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/Controller/dondamua.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/BTLWeb/src/java/DAO/dondamuaDAO.java</file>
+        </group>
+    </open-files>
+</project-private>

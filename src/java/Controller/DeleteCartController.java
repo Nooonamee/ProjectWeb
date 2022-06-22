@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.CRUD;
 import Model.Cart;
+import Model.TaiKhoan;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +21,7 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "DeleteCartController", urlPatterns = {"/DeleteCartController"})
@@ -53,9 +55,11 @@ public class DeleteCartController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("txtiD");
+        HttpSession session = request.getSession();
+        TaiKhoan tk = (TaiKhoan) session.getAttribute("user");
         try {
             crud.deleteCart(id);
-            String idU = crud.layTK();
+            String idU = tk.getId();
             List<Cart> list = crud.getCart(idU);
             request.setAttribute("listt", list);
             getServletContext().getRequestDispatcher("/giohang.jsp").forward(request, response);
