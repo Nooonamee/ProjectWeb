@@ -61,7 +61,7 @@ public class DeleteCartController extends HttpServlet {
             crud.deleteCart(id);
             String idU = tk.getId();
             List<Cart> list = crud.getCart(idU);
-            request.setAttribute("listt", list);
+            session.setAttribute("listSanPham", list);
             getServletContext().getRequestDispatcher("/giohang.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(DeleteCartController.class.getName()).log(Level.SEVERE, null, ex);
