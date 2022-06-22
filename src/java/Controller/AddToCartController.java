@@ -6,8 +6,10 @@
 package Controller;
 
 import DAO.CRUD;
+import DAO.xemchitietDAO;
 import Model.Cart;
 import Model.TaiKhoan;
+import Model.sanPham;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -86,6 +88,9 @@ public class AddToCartController extends HttpServlet {
                     crud.updateCart(cart);
                 }
                 request.setAttribute("list", "Thêm vào giỏ hàng thành công");
+                xemchitietDAO db =new xemchitietDAO();
+                sanPham b= db.getproduct(idP);
+                request.setAttribute("b", b);
                 System.out.println("thanh cong...");
             } catch (SQLException ex) {
                 Logger.getLogger(AddToCartController.class.getName()).log(Level.SEVERE, null, ex);
