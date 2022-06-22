@@ -66,7 +66,6 @@
 
 	
 	<div id="menu">
-		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
 			<li><a href="index.jsp">Trang chủ </a></li>
                         <li><a href="listproduct">Danh sách sản phẩm</a></li>
@@ -177,30 +176,15 @@
                     </tbody>
                     
                 </table>
-
-       
-			
-
-				<!-- Normal content area end -->
-		
-	
-		
-
-
-		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
-		
-
-		
-		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
 		
 
 
 	</div>
 
 	<div id="footer">
-			<div class="left">BTL lập trình web</div>
-			<div class="right">Được làm bởi <a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a></div>
-	</div>
+                <div class="left">BTL lập trình web</div>
+                <div class="right">Được làm bởi nhóm 7</div>
+            </div>
 	
 </div>
 

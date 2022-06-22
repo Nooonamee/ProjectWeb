@@ -1,12 +1,23 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Cart"%>
+<%@page import="Model.TaiKhoan"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    TaiKhoan user = (TaiKhoan) session.getAttribute("user");
+    ArrayList<Cart> listSP = (ArrayList<Cart>) session.getAttribute("listSanPham");
+    int q = 0;
+    if (listSP != null) {
+        q = listSP.size();
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <title>JSP Page</title>
+        <title>Thêm sản phẩm</title>
     </head>
     <body>
         <div id="upbg"></div>
@@ -37,12 +48,21 @@
 		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
 			<li><a href="admin.jsp">Trang chủ </a></li>
-			<li><a href="quanlisanpham" class="active">Quản lý sản phẩm</a></li>
-			<li><a href="#">Điện thoại</a></li>
-			<li><a href="#">Phụ kiện </a></li>
-			<li><a href="#">Máy ảnh</a></li>
-			<li><a href="#">Laptop</a></li>
-                        <li><a href="dangnhap.html">Đăng nhập</a></li>
+			<li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
+			<li class="nut-dn">
+                        <% if (user == null) {%>
+                        <a href="dangnhap.html">Đăng nhập</a>
+                        <%} else { %>
+                        <div class="user">
+                            <img class="avatar" src="images/RAVpower-RP-PB18.png" alt="avata"/>
+                            <p>${user.ten}</p> 
+                        </div>
+                        <div class="user-thongtin">
+                            <div class="user-item user-quanli-tk"><a href="dondamua">Quản lí tài khoản</a></div>
+                            <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
+                        </div>
+                        <% }%>
+                    </li>
                      
 		</ul>
 	</div>
@@ -66,13 +86,12 @@
         <div class="sign_up-1">
             
             <h1> Thêm sản phẩm</h1>
-        <form action="addProduct" method="post">
-            <label >Mã sản phẩm:</label> <input  class="input_box-1"    type="text" name="id" >  <br>            
-            
-            <label>Tên sản phẩm:</label> <input type="text" class="input_box-1"  name="ten"> <br>
-            <label >Loại sản phẩm:</label> <input class="input_box-1"  type="text" name="loaisp"><br>
-            <label >Năm sản xuất:</label> <input class="input_box-1"  type="text" name="namsx"><br>
-            <label >Số lượng còn:</label> <input class="input_box-1"   type="text" name="slcon"><br>
+        <form action="addProduct" method="post">          
+            <label>Tên sản phẩm   :</label> <input type="text" class="input_box-1"  name="ten"> <br>
+            <label >Loại sản phẩm :</label> <input class="input_box-1"  type="text" name="loaisp"><br>
+            <label >Năm sản xuất  :</label> <input class="input_box-1"  type="text" name="namsx"><br>
+            <label >Giá sản phẩm  :</label> <input class="input_box-1"   type="text" name="slcon"><br>
+            <label >Số lượng sp     :</label> <input  class="input_box-1"    type="text" name="id" >  <br>  
           
            
             <input  type="submit" value="Thêm sản phẩm">
@@ -81,20 +100,6 @@
             
         </form>
               </div>
-       
-			
-
-				<!-- Normal content area end -->
-		
-	
-		
-
-
-		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
-		
-
-		
-		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
 		
 
 
@@ -102,7 +107,7 @@
 
 	<div id="footer">
 			<div class="left">BTL lập trình web</div>
-			<div class="right">Được làm bởi <a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a></div>
+			<div class="right">Được làm bởi nhóm 7</div>
 	</div>
 	
 </div>

@@ -103,8 +103,7 @@
                                     <h4>Dien Thoai <%=sp.getTen()%></h4>
                                     <div class="contentarea">
                                         <div class="details">Được đăng bởi<a href="#"> Huy</a> 20/06/2022</div>
-                                        <img src="images/product<%=sp.getId()%>.png" class="left"
-                                                alt="anh sp" />
+                                        <a href="xemchitiet?txtiD=<%=sp.getId()%>"><img src="images/product<%=sp.getId()%>.png" class="left" alt="anh sp" /></a>
 
                                         <ul class="controls">
                                                 <li><a href="#" class="printerfriendly">Bạn bè</a></li>
@@ -121,8 +120,7 @@
                                     <h4>Máy Tính Bang <%=sp.getTen()%></h4>
                                     <div class="contentarea">
                                         <div class="details">Được đăng bởi<a href="#"> Huy</a> 20/06/2022</div>
-                                        <img src="images/product<%=sp.getId()%>.png" class="left"
-                                                alt="anh sp" />
+                                        <a href="xemchitiet?txtiD=<%=sp.getId()%>"><img src="images/product<%=sp.getId()%>.png" class="left" alt="anh sp" /></a>
 
                                         <ul class="controls">
                                                 <li><a href="#" class="printerfriendly">Bạn bè</a></li>

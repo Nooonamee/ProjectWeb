@@ -71,7 +71,6 @@
                         <li><a href="phukien">Phụ kiện </a></li>
                         <li><a href="mayanh">Máy ảnh</a></li>
                         <li><a href="laptop">Laptop</a></li>
-                        <%-- <li><a href="admin.jsp">Quản lý</a></li> --%>
                         <li class="nut-dn">
                             <% if (user == null) {%>
                                 <a href="dangnhap.html">Đăng nhập</a>
@@ -105,8 +104,7 @@
                                     <h4> <%=sp.getTen()%></h4>
                                     <div class="contentarea">
                                         <div class="details">Được đăng bởi<a href="#"> Huy</a> 17/06/2022</div>
-                                        <img src="images/product<%=sp.getId()%>.png" class="left"
-                                                alt="anh sp" />
+                                        <a href="xemchitiet?txtiD=<%=sp.getId()%>"><img src="images/product<%=sp.getId()%>.png" class="left" alt="anh sp" /></a>
 
                                         <ul class="controls">
                                                 <li><a href="#" class="printerfriendly">Bạn bè</a></li>
@@ -124,8 +122,7 @@
                                     <h4><%=sp.getTen()%></h4>
                                     <div class="contentarea">
                                         <div class="details">Được đăng bởi<a href="#"> Huy</a> 20/06/2022</div>
-                                        <img src="images/product<%=sp.getId()%>.png" class="left"
-                                                alt="anh sp" />
+                                        <a href="xemchitiet?txtiD=<%=sp.getId()%>"><img src="images/product<%=sp.getId()%>.png" class="left" alt="anh sp" /></a>
 
                                         <ul class="controls">
                                                 <li><a href="#" class="printerfriendly">Bạn bè</a></li>
@@ -143,8 +140,7 @@
                                     <h4>Tai nghe <%=sp.getTen()%></h4>
                                     <div class="contentarea">
                                         <div class="details">Được đăng bởi<a href="#"> Huy</a> 20/06/2022</div>
-                                        <img src="images/product<%=sp.getId()%>.png" class="left"
-                                                alt="anh sp" />
+                                        <a href="xemchitiet?txtiD=<%=sp.getId()%>"><img src="images/product<%=sp.getId()%>.png" class="left" alt="anh sp" /></a>
 
                                         <ul class="controls">
                                                 <li><a href="#" class="printerfriendly">Bạn bè</a></li>
@@ -162,8 +158,7 @@
                                     <h4>Tai nghe khong day<%=sp.getTen()%></h4>
                                     <div class="contentarea">
                                         <div class="details">Được đăng bởi<a href="#"> Huy</a> 20/06/2022</div>
-                                        <img src="images/product<%=sp.getId()%>.png" class="left"
-                                                alt="anh sp" />
+                                        <a href="xemchitiet?txtiD=<%=sp.getId()%>"><img src="images/product<%=sp.getId()%>.png" class="left" alt="anh sp" /></a>
 
                                         <ul class="controls">
                                                 <li><a href="#" class="printerfriendly">Bạn bè</a></li>

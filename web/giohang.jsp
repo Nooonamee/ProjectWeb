@@ -80,7 +80,7 @@
                                     <p>${user.ten}</p> 
                                 </div>
                                 <div class="user-thongtin">
-                                    <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                    <div class="user-item user-quanli-tk"><a href="dondamua">Quản lí tài khoản</a></div>
                                     <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
                                 </div>
                                 <% }%>
@@ -165,12 +165,14 @@
                     <tbody>
                         <% if (q>0) for (Cart sp : listSP) {%>
                             <tr>
-                                <td><img class="anhminhhoa" src="images/product<%=sp.getIdProduct()%>.png" alt="alt"/></td>
+                                <td><a href="xemchitiet?txtiD=<%=sp.getIdProduct()%>">
+                                    <img class="anhminhhoa" src="images/product<%=sp.getIdProduct()%>.png" alt="alt"/>
+                                </a></td>
                                 <td><%=sp.getTen()%></td>
                                 <td><%=sp.getId()%></td>
                                 <td><%=sp.getCreateDate()%></td> 
                                      
-                                <td><a href="DeleteCartController?txtiD=<%=sp.getIdProduct()%>">Xóa sản phẩm</a></td>
+                                <td><a href="DeleteCartController?txtiD=<%=sp.getId()%>">Xóa sản phẩm</a></td>
                             </tr>
                         <%}%>
                     </tbody>
@@ -179,9 +181,9 @@
 	</div>
 
 	<div id="footer">
-			<div class="left">BTL lập trình web</div>
-			<div class="right">Được làm bởi <a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a></div>
-	</div>
+                <div class="left">BTL lập trình web</div>
+                <div class="right">Được làm bởi nhóm 7</div>
+            </div>
 	
 </div>
     </body>

@@ -41,14 +41,10 @@
 
 	
 	<div id="menu">
-		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
 		<ul>
 			<li><a href="admin.jsp">Trang chủ </a></li>
 			<li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
-			<li><a href="#">Điện thoại</a></li>
-			<li><a href="#">Phụ kiện </a></li>
-			<li><a href="#">Máy ảnh</a></li>
-			<li><a href="#">Laptop</a></li>
+                        <li><a href="quanlidonhang">Quản lý đơn hàng</a></li>
                         <li class="nut-dn">
                             <% if (user == null) {%>
                                 <a href="dangnhap.html">Đăng nhập</a>
@@ -72,7 +68,6 @@
 	
 	<div id="content">
 
-		<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
 		<div id="normalcontent">
 			
 			<div class="contentarea">
@@ -114,6 +109,7 @@
                 .tb{
                     margin: 0 auto;
                     width: 90%;
+                    margin-top: 30px;
                 }
                 .xoa{
                     color: red;
@@ -121,10 +117,20 @@
                 .sua{
                     color: #0062cc;
                 }
+                .themsp{
+                    border: 1px solid #838800; 
+                    background-color: #838800;
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 5px;
+                    font-size: 16px;
+                    margin: 60px;
+                    margin-bottom: 100px;
+                }
             </style>
 
 
-            <a href="AddProduct.jsp">Thêm sản phẩm</a>
+            <a href="AddProduct.jsp" class="themsp">Thêm sản phẩm</a>
             <div class="tb">
                 <table class="table" boder="1">
                     <thead>

@@ -106,8 +106,8 @@
 
                             <div class="contentarea">
                                 <div class="details">Được đăng bởi<a href="#"> Tuấn Hùng</a> 12/06/2022</div>
-                                <img src="images/201406051522109725_Nokia 1280.png" class="left"
-                                     alt="A chinese lion statue" />
+                                <a href="xemchitiet?txtiD=11"><img src="images/product11.png" class="left"
+                                        alt="A chinese lion statue" /></a>
 
                                 <ul class="controls">
                                     <li><a href="#" class="printerfriendly">Bạn bè</a></li>
@@ -123,7 +123,8 @@
                             <h2>Máy ảnh canon</h2>
                             <div class="contentarea">
                                 <div class="details">Được đăng bởi <a href="#">Tuấn Hùng</a> 12/06/2022</div>
-                                <img src="images/TB1129.png" class="left" />
+                                <a href="xemchitiet?txtiD=22"><img src="images/product22.png" class="left"
+                                        alt="A chinese lion statue" /></a>
 
                                 <ul class="controls">
                                     <li><a href="#" class="friendly">Bạn bè</a></li>
@@ -136,10 +137,11 @@
                         <div class="divider2"></div>
 
                         <div class="post">
-                            <h4>LapTop Asus</h4>
+                            <h4>Samsung galaxy A50</h4>
                             <div class="contentarea">
                                 <div class="details">Đăng bởi <a href="#">Tuấn Hùng</a> 12/06/2022</div>
-                                <img src="images/product08.png" class="left" />
+                                <a href="xemchitiet?txtiD=8"><img src="images/product8.png" class="left"
+                                        alt="A chinese lion statue" /></a>
                                 <ul class="controls">
                                     <li><a href="#" class="friendly">Bạn bè</a></li>
                                     <li><a href="#" class="comments"> Bình luận(18)</a></li>
@@ -168,12 +170,8 @@
 
             <div id="footer">
                 <div class="left">BTL lập trình web</div>
-                <div class="right">
-                    Được làm bởi 
-                    <a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a>
-                </div>
+                <div class="right">Được làm bởi nhóm 7</div>
             </div>
-
         </div>
 
     </body>

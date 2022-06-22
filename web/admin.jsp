@@ -51,7 +51,6 @@
                     <li><a href="admin.jsp">Trang chủ </a></li>
                     <li><a href="quanlisanpham">Quản lý sản phẩm</a></li>
                     <li><a href="quanlidonhang">Quản lý đơn hàng</a></li>
-                    <li><a href="./">Người dùng</a></li>
                     <li class="nut-dn">
                         <% if (user == null) {%>
                         <a href="dangnhap.html">Đăng nhập</a>

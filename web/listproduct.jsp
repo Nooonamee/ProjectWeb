@@ -84,7 +84,7 @@
                                     <p>${user.ten}</p> 
                                 </div>
                                 <div class="user-thongtin">
-                                  <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                  <div class="user-item user-quanli-tk"><a href="dondamua">Quản lí tài khoản</a></div>
                                   <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
                                 </div>
                                 <% }%>
@@ -158,7 +158,6 @@
                     <thead>
                         <tr>
                             <th>Ảnh minh họa</th>
-                            <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
                             <th>Loại sản phẩm</th>
                             <th>Màu</th>
@@ -171,8 +170,7 @@
                     <tbody>
                         <c:forEach items="${list}" var="E">
                             <tr>
-                                <td><img class="anhminhhoa" src="images/product${E.id}.png" alt="alt"/></td>
-                                <td>${E.id}</td>
+                                <td><a href="xemchitiet?txtiD=${E.id}"><img class="anhminhhoa" src="images/product${E.id}.png" alt="alt"/></a></td>
                                 <td>${E.ten}</td>
                                 <td>${E.loai}</td>
                                 <td>${E.mau}</td>
@@ -183,30 +181,15 @@
                     </tbody>
                     
                 </table>
-
-       
-			
-
-				<!-- Normal content area end -->
-		
-	
-		
-
-
-		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
-		
-
-		
-		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
 		
 
 
 	</div>
 
 	<div id="footer">
-			<div class="left">BTL lập trình web</div>
-			<div class="right">Được làm bởi <a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a></div>
-	</div>
+                <div class="left">BTL lập trình web</div>
+                <div class="right">Được làm bởi nhóm 7</div>
+            </div>
 	
 </div>
 

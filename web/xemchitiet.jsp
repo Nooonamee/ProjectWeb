@@ -83,7 +83,7 @@
                                     <p>${user.ten}</p> 
                                 </div>
                                 <div class="user-thongtin">
-                                  <div class="user-item user-quanli-tk">Quản lí tài khoản</div>
+                                  <div class="user-item user-quanli-tk"><a href="dondamua">Quản lí tài khoản</a></div>
                                   <div class="user-item user-dangxuat"><a href="dangxuat">Đăng xuất</a></div>
                                 </div>
                                 <% }%>
@@ -132,9 +132,9 @@
 	</div>
 
 	<div id="footer">
-			<div class="left">BTL lập trình web</div>
-			<div class="right">Được làm bởi <a href="https://www.facebook.com/hung.nguyentuan.75436531">Nguyễn Tuấn Hùng</a></div>
-	</div>
+                <div class="left">BTL lập trình web</div>
+                <div class="right">Được làm bởi nhóm 7</div>
+        </div>
 	
 </div>
 
