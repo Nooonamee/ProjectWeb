@@ -167,10 +167,11 @@ public class CRUD {
         
         return list;
     }
-    public void deleteCart(String id) throws SQLException{
-        String ISSql = "DELETE FROM cart WHERE id=? ";
+    public void deleteCart(String id,String khach) throws SQLException{
+        String ISSql = "DELETE FROM cart WHERE idp=? and tendn=?";
         PreparedStatement ps = conn.prepareStatement(ISSql);
         ps.setString(1, id);
+        ps.setString(2, khach);
         ps.executeUpdate();
     }
     public int saveProduct(sanPham sp) throws SQLException{

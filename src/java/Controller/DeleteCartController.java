@@ -58,8 +58,9 @@ public class DeleteCartController extends HttpServlet {
         HttpSession session = request.getSession();
         TaiKhoan tk = (TaiKhoan) session.getAttribute("user");
         try {
-            crud.deleteCart(id);
-            String idU = tk.getId();
+            crud.deleteCart(id,tk.getTen());
+            System.out.println(id+"  "+tk.getTen());
+            String idU = tk.getTen();
             List<Cart> list = crud.getCart(idU);
             session.setAttribute("listSanPham", list);
             getServletContext().getRequestDispatcher("/giohang.jsp").forward(request, response);
